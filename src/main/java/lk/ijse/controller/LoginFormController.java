@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
@@ -38,6 +35,10 @@ public class LoginFormController implements Initializable {
     private AnchorPane ChildPane;
 
     @FXML
+    private Button loginbtn;
+
+
+    @FXML
     private TextField UserName;
 
     @FXML
@@ -58,62 +59,7 @@ public class LoginFormController implements Initializable {
         cmbAdmin.getItems().addAll(roles); // Add roles to ComboBox
     }
 
-//    public void btnLoginOnAction(ActionEvent event) {
-//        try {
-//            String role = cmbAdmin.getValue();
-//            String password = passward.getText();
-//            String username = UserName.getText();
-//
-//            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
-//            Transaction tx = session.beginTransaction();
-//
-//            Query query = session.createQuery("from User where username = :username and password = :password");
-//            query.setParameter("username", username);
-//            query.setParameter("password", password);
-//            List<UserDTO> list = query.list(); // Assuming 'User' is your entity class representing the users table
-//
-//            if (!list.isEmpty()) {
-//                UserDTO user = list.get(0);
-//
-//                if (user.getRole().equalsIgnoreCase(role)) {
-//                    String fxmlFile = "";
-//
-//                    if ("Admin".equalsIgnoreCase(role)) {
-//                        fxmlFile = "/AdminDash.fxml";
-//                    } else if ("Cordinator".equalsIgnoreCase(role)) {
-//                        fxmlFile = "/AdminCordinator.fxml";
-//                    } else {
-//                        Alert alert = new Alert(Alert.AlertType.WARNING);
-//                        alert.setContentText("Role not recognized.");
-//                        alert.showAndWait();
-//                        return;
-//                    }
-//
-//                    Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
-//                    Scene scene = new Scene(root);
-//                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                    stage.setScene(scene);
-//                    stage.show();
-//                } else {
-//                    Alert alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setContentText("Role does not match the selected option.");
-//                    alert.showAndWait();
-//                }
-//            } else {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setContentText("Invalid username or password.");
-//                alert.showAndWait();
-//            }
-//
-//            tx.commit();
-//            session.close();
-//        } catch (Exception e) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("Error fetching users.");
-//            alert.showAndWait();
-//            e.printStackTrace();
-//        }
-//    }
+
 
 
 
@@ -126,16 +72,71 @@ public class LoginFormController implements Initializable {
         UserDTO userDTO = new UserDTO(role, username, password);
         List<UserDTO> userList = new ArrayList<>();
 
-        userList = userBo.getUserDetails(userDTO);
-
-        System.out.println("hi" + userList);
-
         if(role.equals("Admin")) {
+            userList = userBo.getUserDetails(userDTO);
+            try {
+                boolean isCredintialsok = false;
+                for (UserDTO userDTO1 : userList) {
+                    if(userDTO1.getUsername().equals(username)&&userDTO1.getPassword().equals(password)) {
+                        new Alert(Alert.AlertType.INFORMATION, "Welcome Admin " + username).show();
+                        userDTO1.getUsername();
+                        userDTO1.getPassword();
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
+                            Scene scene1 = new Scene(root);
+                            Stage stage1 = (Stage) loginbtn.getScene().getWindow();
+                            stage1.setScene(scene1);
+                            stage1.setTitle("Dashboard Form");
+                            stage1.centerOnScreen();
+                            isCredintialsok = true;
+                        }catch (Exception e){
+                            System.out.println(e.getMessage());
+                        }
+                    }
 
+                }
+                if (isCredintialsok==false) {
+                    new Alert(Alert.AlertType.INFORMATION, "Invalid Admin Credentials").show();
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        } else if (role.equals("Cordinator")) {
+            userList = userBo.getUserDetails(userDTO);
+            try {
+                boolean isCredintialsok = false;
+                for (UserDTO userDTO1 : userList) {
+                    if(userDTO1.getUsername().equals(username)&&userDTO1.getPassword().equals(password)) {
+                        new Alert(Alert.AlertType.INFORMATION, "Welcome Cordinator " + username).show();
+                        userDTO1.getUsername();
+                        userDTO1.getPassword();
+
+                        try {
+                            Parent root = FXMLLoader.load(getClass().getResource("/AdminCordinator.fxml"));
+                            Scene scene1 = new Scene(root);
+                            Stage stage1 = (Stage) loginbtn.getScene().getWindow();
+                            stage1.setScene(scene1);
+                            stage1.setTitle("Dashboard Form");
+                            stage1.centerOnScreen();
+                            isCredintialsok = true;
+
+                        }catch (Exception e){
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }
+                if (isCredintialsok==false) {
+                    new Alert(Alert.AlertType.INFORMATION, "Invalid Cordinator Credentials").show();
+                }
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 
-    // Utility method to show alerts
+
 
 
 
