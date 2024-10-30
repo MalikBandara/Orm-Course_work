@@ -37,7 +37,7 @@
             <ComboBox fx:id="cmbAdmin" layoutX="43.0" layoutY="258.0" prefHeight="36.0" prefWidth="401.0" promptText="--Select User Role-- " />
             <TextField fx:id="UserName" layoutX="43.0" layoutY="340.0" prefHeight="36.0" prefWidth="401.0" promptText="Enter Username" />
             <PasswordField fx:id="passward" layoutX="43.0" layoutY="412.0" prefHeight="36.0" prefWidth="401.0" promptText="Enter Passward" />
-            <Button layoutX="43.0" layoutY="490.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="401.0" text="Login" />
+            <Button layoutX="43.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="35.0" prefWidth="401.0" text="Login" />
          </children>
       </AnchorPane>
    </children>

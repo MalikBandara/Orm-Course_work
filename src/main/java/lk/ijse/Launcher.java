@@ -1,19 +1,32 @@
 package lk.ijse;
 
 
-import lk.ijse.config.SessionFactoryConfuguration;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Launcher {
+public class Launcher extends Application {
+
     public static void main(String[] args) {
 
 
-        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
-        Transaction tx = session.beginTransaction();
-        tx.commit();
-        session.close();
-
-        System.out.println("Hello world!");
+        launch(args);
     }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
+
+        Parent root = FXMLLoader.load(getClass().getResource("/LoginPage.fxml"));
+        Scene scene = new Scene( root);
+        stage.setScene(scene);
+        stage.show();
+
+
+
+
+    }
+
 }
