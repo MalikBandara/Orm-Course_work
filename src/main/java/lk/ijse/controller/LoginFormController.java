@@ -3,7 +3,6 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,13 +11,9 @@ import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.UserBo;
-import lk.ijse.config.SessionFactoryConfuguration;
 import lk.ijse.dto.UserDTO;
-import lk.ijse.entity.User;
 import javafx.fxml.Initializable;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+
 
 import java.net.URL;
 import java.util.ArrayList;
