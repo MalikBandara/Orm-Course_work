@@ -19,7 +19,7 @@ public class Launcher extends Application {
     public void start(Stage stage) throws Exception {
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("/LoginPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/StudentForm.fxml"));
         Scene scene = new Scene( root);
         stage.setScene(scene);
         stage.show();

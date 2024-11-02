@@ -1,5 +1,6 @@
 package lk.ijse.dao;
 
+import lk.ijse.dao.impl.StudentDaoImpl;
 import lk.ijse.dao.impl.UserDaoImpl;
 
 public class DaoFactory {
@@ -20,8 +21,11 @@ public class DaoFactory {
         switch (daoType) {
             case User :
                 return new UserDaoImpl();
-                default :
-                    return null;
+
+            case Student:
+                return new StudentDaoImpl();
+
         }
+        return null;
     }
 }

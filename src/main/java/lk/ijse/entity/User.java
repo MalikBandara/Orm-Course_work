@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+
 public class User {
 
     @Id
@@ -25,4 +23,9 @@ public class User {
 
     @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL) // Cascade all operations
     private List<Student> students;
+
+    @Override
+    public String toString() {
+        return this.username; // Change to whatever field you want to display
+    }
 }
