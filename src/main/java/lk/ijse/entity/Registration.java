@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,6 +21,8 @@ public class Registration {
     private int registrationId;
 
     private double advanced;
+
+    private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL) // Cascade all operations
     private Courses courses;
