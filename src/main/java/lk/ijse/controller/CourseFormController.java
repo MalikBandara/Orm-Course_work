@@ -11,7 +11,7 @@ import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.CourseBo;
 import lk.ijse.dto.CoursesDTO;
 
-import java.util.Date;
+
 
 
 
@@ -39,7 +39,7 @@ public class CourseFormController {
     private TextField duaration;
 
     @FXML
-    private TableColumn<?, ?> duration;
+    private TableColumn<?, ?> durationcol;
 
     @FXML
     private TableView<?> tblcourse;
@@ -48,6 +48,10 @@ public class CourseFormController {
 
     @FXML
     void clearOnAction(ActionEvent event) {
+        courseId.clear();
+        courseName.clear();
+        coursePrice.clear();
+        duaration.clear();
 
     }
 
@@ -62,7 +66,7 @@ public class CourseFormController {
             String courseId = this.courseId.getText();
             String courseName = this.courseName.getText();
             double coursePrice = Double.parseDouble(this.coursePrice.getText());
-            String duration = this.duration.getText(); // Fixed typo from 'duaration' to 'duration'
+            String duration = this.duaration.getText(); // Fixed typo from 'duaration' to 'duration'
 
             CoursesDTO coursesDTO = new CoursesDTO(courseId, courseName, duration, coursePrice);
 
@@ -86,11 +90,20 @@ public class CourseFormController {
     @FXML
     void searchOnAction(ActionEvent event) {
 
+        String courseId = this.courseId.getText();
+
+        CoursesDTO coursesDTO = courseBo.searchCourse(courseId);
+
+        this.courseName.setText(coursesDTO.getCourseName());
+        this.coursePrice.setText(String.valueOf(coursesDTO.getCoursePrice()));
+        this.duaration.setText(coursesDTO.getDuration());
+
 
     }
 
     @FXML
     void updateOnAction(ActionEvent event) {
+
 
     }
     private void showAlert(String title, String message, Alert.AlertType alertType) {

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CourseFormController">
    <children>
       <Label layoutX="75.0" layoutY="131.0" text="Course id ">
@@ -40,7 +39,7 @@
           <TableColumn fx:id="colid" prefWidth="269.0" text="id" />
           <TableColumn fx:id="colname" prefWidth="252.0" text="name" />
             <TableColumn fx:id="colPrice" prefWidth="233.0" text="price" />
-            <TableColumn fx:id="duration" prefWidth="197.0" text="duration" />
+            <TableColumn fx:id="duration" prefWidth="197.0" text="durationcol" />
         </columns>
       </TableView>
       <Button layoutX="71.0" layoutY="695.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="44.0" prefWidth="126.0" text="Save" />

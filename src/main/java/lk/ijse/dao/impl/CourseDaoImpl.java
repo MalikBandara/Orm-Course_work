@@ -6,6 +6,8 @@ import lk.ijse.entity.Courses;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class CourseDaoImpl implements CourseDao {
     @Override
     public boolean save(Courses courses) {
@@ -29,6 +31,13 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Courses find(String id) {
-        return null;
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        Courses courses = (Courses) session.get(Courses.class, id);
+        tx.commit();
+        session.close();
+        return courses;
     }
+
+
 }

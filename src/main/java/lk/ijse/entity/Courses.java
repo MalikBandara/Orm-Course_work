@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
+import lombok.Setter;
+
 import java.util.List;
 
 @Entity
@@ -12,6 +14,7 @@ public class Courses {
     @Id
     private String courseId;
     private String courseName;
+    @Setter
     private String duration;
     private double coursePrice;
 
@@ -40,12 +43,14 @@ public class Courses {
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
+
     public String getDuration() {
         return duration;
     }
     public void setDuration(String duration) {
         this.duration = duration;
     }
+
     public double getCoursePrice() {
         return coursePrice;
     }
