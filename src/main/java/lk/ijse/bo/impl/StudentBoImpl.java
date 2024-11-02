@@ -1,5 +1,6 @@
 package lk.ijse.bo.impl;
 
+import javafx.scene.control.Alert;
 import lk.ijse.bo.StudentBo;
 import lk.ijse.dao.DaoFactory;
 import lk.ijse.dao.DaoType;
@@ -35,7 +36,15 @@ public class StudentBoImpl implements StudentBo {
     public StudentDTO searchStudent(int studentIdText) {
         Student student1 = studentDao.find(String.valueOf(studentIdText));
 
+
         StudentDTO studentDTO = new StudentDTO(student1.getStudentId(), student1.getStudentName(), student1.getStudentAddress(), student1.getStudentPhone(), student1.getStudentEmail(), student1.getUserid());
         return studentDTO;
+
+
+    }
+
+    @Override
+    public boolean deleteStudent(int studentIdText) {
+        return studentDao.delete(studentIdText);
     }
 }

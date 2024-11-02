@@ -46,8 +46,14 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public boolean delete(Student student) {
-        return false;
+    public boolean delete(int student) {
+
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(session.get(Student.class, student));
+        tx.commit();
+        System.out.println("Student deleted successfully!");
+        return true;
     }
 
     @Override

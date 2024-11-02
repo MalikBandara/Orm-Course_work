@@ -26,7 +26,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean delete(User user) {
+    public boolean delete(int user) {
         return false;
     }
 
