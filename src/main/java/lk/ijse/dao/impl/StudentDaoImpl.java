@@ -16,18 +16,12 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean save(Student student) {
-        try (Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession()) {
-            Transaction tx = session.beginTransaction();
-            session.save(student); // Save the student
-            tx.commit(); // Commit the transaction
-            System.out.println("Student saved successfully!");
-        } catch (HibernateException e) {
-            System.out.println("Failed to save student due to a database error.");
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return true;
+         Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+         Transaction tx = session.beginTransaction();
+         session.save(student); // Save the student
+         tx.commit(); // Commit the transaction
+         System.out.println("Student saved successfully!");
+         return true;
     }
 
     @Override
@@ -54,6 +48,11 @@ public class StudentDaoImpl implements StudentDao {
         tx.commit();
         System.out.println("Student deleted successfully!");
         return true;
+    }
+
+    @Override
+    public boolean delete(String t) {
+        return false;
     }
 
     @Override

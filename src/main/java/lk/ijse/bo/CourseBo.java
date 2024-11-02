@@ -10,4 +10,7 @@ public interface CourseBo extends SuperBo{
 
     CoursesDTO searchCourse(String courseId);
 
+    boolean deleteCourse(String courseIdText);
+
+    boolean updateCourse(CoursesDTO coursesDTO);
 }

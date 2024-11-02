@@ -28,5 +28,16 @@ public class CourseBoImpl implements CourseBo {
         return coursesDTO;
     }
 
+    @Override
+    public boolean deleteCourse(String courseIdText) {
+        boolean deletee = courseDao.delete(courseIdText);
+        return deletee;
+    }
+
+    @Override
+    public boolean updateCourse(CoursesDTO coursesDTO) {
+      return   courseDao.update(new Courses(coursesDTO.getCourseId(),coursesDTO.getCourseName(),coursesDTO.getDuration(),coursesDTO.getCoursePrice()));
+    }
+
 
 }

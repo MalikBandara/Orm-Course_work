@@ -70,7 +70,6 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void SaveOnAction(ActionEvent event) {
-
         try {
             int studentId = validateStudentId();
             if (studentId == -1) return;
@@ -79,33 +78,28 @@ public class StudetnFormController implements Initializable {
             String address = this.address.getText();
             String contact = this.contact.getText();
             String email = this.Email.getText();
-
             User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
 
             if (selectedCoordinator == null) {
-                System.out.println("Please select a coordinator.");
+                showAlert("Input Error", "Please select a coordinator.", Alert.AlertType.WARNING);
                 return;
             }
 
-            // Create a new Student instance
+            // Create a new StudentDTO instance
             StudentDTO studentDTO = new StudentDTO(studentId, studentName, address, contact, email, selectedCoordinator);
-            boolean b = studentBo.addStudent(studentDTO);
+            boolean isAdded = studentBo.addStudent(studentDTO);
 
-            if (b==true){
-                System.out.println("Student added successfully 2 .");
-                loadStudentTable();
+            if (isAdded) {
+                showAlert("Success", "Student added successfully!", Alert.AlertType.INFORMATION);
+                loadStudentTable(); // Reload the table after successful addition
+            } else {
+                showAlert("Failure", "Failed to add the student. Please try again.", Alert.AlertType.ERROR);
             }
-            else {
-                System.out.println("Student addition failed.");
-            }
 
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
+
         }
-
-
-
     }
 
     private int validateStudentId() {

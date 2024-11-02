@@ -31,6 +31,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean delete(String t) {
+        return false;
+    }
+
+    @Override
     public User find(String id) {
         return null;
     }
