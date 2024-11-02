@@ -81,4 +81,19 @@ public class StudentDaoImpl implements StudentDao {
         return users;
     }
 
+    @Override
+    public List<Student> loadTable() {
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+         List<Student> list = session.createQuery("from Student").list();
+         transaction.commit();
+         session.close();
+         for (Student student : list) {
+             System.out.println(student.getStudentId());
+         }
+         return list;
+
+    }
+
 }

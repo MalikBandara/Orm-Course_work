@@ -1,10 +1,12 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
@@ -12,10 +14,12 @@ import lk.ijse.bo.StudentBo;
 
 import lk.ijse.dto.StudentDTO;
 
+import lk.ijse.dto.tm.StudentTm;
 import lk.ijse.entity.User;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class StudetnFormController implements Initializable {
 
@@ -34,20 +38,24 @@ public class StudetnFormController implements Initializable {
     @FXML
     private AnchorPane anchorpane;
 
-    @FXML
-    private TableColumn<?, ?> colName;
 
     @FXML
-    private TableColumn<?, ?> coladdress;
+    private TableColumn<StudentTm, String> corid;
 
     @FXML
-    private TableColumn<?, ?> colcontact;
+    private TableColumn<StudentTm, String > colName;
 
     @FXML
-    private TableColumn<?, ?> colemail;
+    private TableColumn<StudentTm, String> coladdress;
 
     @FXML
-    private TableColumn<?, ?> colid;
+    private TableColumn<StudentTm, String> colcontact;
+
+    @FXML
+    private TableColumn<StudentTm, String> colemail;
+
+    @FXML
+    private TableColumn<String, Integer> colid;
 
     @FXML
     private ComboBox<User> cmbCoId; // Change to hold User objects
@@ -56,7 +64,7 @@ public class StudetnFormController implements Initializable {
     private TextField contact;
 
     @FXML
-    private TableView<?> tblStudent;
+    private TableView<StudentTm> tblStudent;
 
     StudentBo studentBo = (StudentBo) BoFactory.getBoFactory().getBo(BoTypes.Student);
 
@@ -84,6 +92,7 @@ public class StudetnFormController implements Initializable {
 
         if (b==true){
             System.out.println("Student added successfully 2 .");
+            loadStudentTable();
         }
         else {
             System.out.println("Student addition failed.");
@@ -133,17 +142,27 @@ public class StudetnFormController implements Initializable {
     void deleteOnAction(ActionEvent event) {
         int studentIdText = Integer.parseInt(this.studentId.getText());
 
-        boolean b = studentBo.deleteStudent(studentIdText);
-        if (b == true) {
-            // Create an alert for student update confirmation
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Delete Successful");
-            alert.setHeaderText(null); // You can set a header text if you want
-            alert.setContentText("Student information has been Deleted successfully!");
 
-            // Show the alert and wait for the user to respond
-            alert.showAndWait();
-            clearFields();
+        try {
+            boolean b = studentBo.deleteStudent(studentIdText);
+            if (b == true) {
+                // Create an alert for student update confirmation
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Delete Successful");
+                alert.setHeaderText(null); // You can set a header text if you want
+                alert.setContentText("Student information has been Deleted successfully!");
+
+                // Show the alert and wait for the user to respond
+                alert.showAndWait();
+                clearFields();
+                loadStudentTable();
+
+            }else {
+                showAlert("Student not found", "No student found with the given ID.", Alert.AlertType.WARNING);
+            }
+
+        }catch (Exception e){
+            showAlert("Student not found", "No student found with the given ID.", Alert.AlertType.WARNING);
         }
     }
 
@@ -223,6 +242,7 @@ public class StudetnFormController implements Initializable {
 
             // Show the alert and wait for the user to respond
             alert.showAndWait();
+            loadStudentTable();
         }
 
 
@@ -230,11 +250,68 @@ public class StudetnFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         cmbCordinator();
+        loadStudentTable();
+        setCellValueFactory();
+
     }
 
     private void cmbCordinator() {
         List<User> users = studentBo.getUserIds(); // Adjust this method to return List<User>
         cmbCoId.getItems().addAll(users);
+    }
+
+//    private void loadStudent(){
+//        try {
+//
+//            tblStudent.getItems().clear();
+//            List<StudentDTO> studentList = studentBo.loadTable();
+//            ObservableList<StudentTm> tableItems = studentList.stream()
+//                    .map(student -> new StudentTm(
+//                            student.getStudentId(),
+//                            student.getStudentName(),
+//                            student.getStudentAddress(),
+//                            student.getStudentPhone(),
+//                            student.getStudentEmail(),
+//                            student.getUserid()))
+//                    .collect(Collectors.toCollection(FXCollections::observableArrayList));
+//
+//            tblStudent.getItems().setAll(tableItems);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+
+    private void loadStudentTable() {
+        try {
+            tblStudent.getItems().clear();
+            List<StudentDTO> studentList = studentBo.loadTable();
+
+            System.out.println(studentList.size());
+
+            for (StudentDTO studentDTO : studentList) {
+                StudentTm studentTm = new StudentTm(studentDTO.getStudentId(), studentDTO.getStudentName(), studentDTO.getStudentAddress(), studentDTO.getStudentPhone(), studentDTO.getStudentEmail(), studentDTO.getUserid());
+                tblStudent.getItems().add(studentTm);
+
+            }
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load student table.", Alert.AlertType.ERROR);
+        }
+    }
+
+
+    private void setCellValueFactory() {
+        colid.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        coladdress.setCellValueFactory(new PropertyValueFactory<>("studentAddress"));
+        colcontact.setCellValueFactory(new PropertyValueFactory<>("studentPhone"));
+        colemail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
+        corid.setCellValueFactory(new PropertyValueFactory<>("userid"));
+
     }
 }

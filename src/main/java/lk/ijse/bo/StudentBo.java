@@ -19,4 +19,6 @@ public interface StudentBo extends SuperBo {
     StudentDTO searchStudent(int studentIdText);
 
     boolean deleteStudent(int studentIdText);
+
+    List<StudentDTO> loadTable();
 }

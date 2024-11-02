@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface StudentDao extends CrudDao<Student>{
     List<User> getid();
+
+    List<Student> loadTable();
 }

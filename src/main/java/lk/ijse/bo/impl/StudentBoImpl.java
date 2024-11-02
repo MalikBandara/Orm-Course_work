@@ -9,6 +9,7 @@ import lk.ijse.dto.StudentDTO;
 import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentBoImpl implements StudentBo {
@@ -46,5 +47,17 @@ public class StudentBoImpl implements StudentBo {
     @Override
     public boolean deleteStudent(int studentIdText) {
         return studentDao.delete(studentIdText);
+    }
+
+    @Override
+    public List<StudentDTO> loadTable() {
+        List<Student> students = studentDao.loadTable();
+        List<StudentDTO> studentDTOS = new ArrayList<>();
+        for (Student student : students) {
+            StudentDTO studentDTO = new StudentDTO(student.getStudentId(), student.getStudentName(), student.getStudentAddress(), student.getStudentPhone(), student.getStudentEmail(), student.getUserid());
+            studentDTOS.add(studentDTO);
+        }
+        return studentDTOS;
+
     }
 }
