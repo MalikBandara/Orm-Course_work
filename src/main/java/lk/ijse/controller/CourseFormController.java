@@ -2,29 +2,34 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.CourseBo;
 import lk.ijse.dto.CoursesDTO;
+import lk.ijse.dto.tm.CourseTm;
 
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
-
-public class CourseFormController {
-
-    @FXML
-    private TableColumn<?, ?> colPrice;
-
-    @FXML
-    private TableColumn<?, ?> colid;
+public class CourseFormController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> colname;
+    private TableColumn<CourseTm, Double> colPrice;
+
+    @FXML
+    private TableColumn<CourseTm, String> colid;
+
+    @FXML
+    private TableColumn<CourseTm, String> colname;
 
     @FXML
     private TextField courseId;
@@ -39,10 +44,10 @@ public class CourseFormController {
     private TextField duaration;
 
     @FXML
-    private TableColumn<?, ?> durationcol;
+    private TableColumn<CourseTm, String> durationcol;
 
     @FXML
-    private TableView<?> tblcourse;
+    private TableView<CourseTm> tblcourse;
 
     CourseBo courseBo = (CourseBo) BoFactory.getBoFactory().getBo(BoTypes.Course);
 
@@ -62,6 +67,7 @@ public class CourseFormController {
             String courseIdText = courseId.getText();
 
             boolean isDeleted = courseBo.deleteCourse(courseIdText);
+            loadCourseTable();
 
             if (isDeleted) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -101,6 +107,7 @@ public class CourseFormController {
             CoursesDTO coursesDTO = new CoursesDTO(courseId, courseName, duration, coursePrice);
 
             boolean isSaved = courseBo.saveCourses(coursesDTO);
+            loadCourseTable();
 
             if (isSaved) {
                 showAlert("Save", "Course saved successfully.", Alert.AlertType.INFORMATION);
@@ -124,6 +131,7 @@ public class CourseFormController {
             String courseId = this.courseId.getText();
 
             CoursesDTO coursesDTO = courseBo.searchCourse(courseId);
+            loadCourseTable();
 
             if (coursesDTO != null) {
                 this.courseName.setText(coursesDTO.getCourseName());
@@ -152,6 +160,7 @@ public class CourseFormController {
             CoursesDTO coursesDTO = new CoursesDTO(courseId, courseName, duration, coursePrice);
 
             boolean isUpdated = courseBo.updateCourse(coursesDTO);
+            loadCourseTable();
 
             if (isUpdated) {
                 showAlert("Success", "Course updated successfully!", Alert.AlertType.INFORMATION);
@@ -173,4 +182,28 @@ public class CourseFormController {
         alert.showAndWait();
     }
 
+    private void loadCourseTable(){
+        tblcourse.getItems().clear();
+
+        List<CoursesDTO> coursesDTOS = courseBo.loadTable();
+        for (CoursesDTO coursesDTO : coursesDTOS) {
+            CourseTm courseTm = new CourseTm(coursesDTO.getCourseId(), coursesDTO.getCourseName(), coursesDTO.getDuration(), coursesDTO.getCoursePrice());
+            tblcourse.getItems().add(courseTm);
+        }
+    }
+
+    private void setCellValueFactory() {
+        colid.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        colname.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        durationcol.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("coursePrice"));
+
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+          loadCourseTable();
+          setCellValueFactory();
+    }
 }

@@ -39,7 +39,7 @@
           <TableColumn fx:id="colid" prefWidth="269.0" text="id" />
           <TableColumn fx:id="colname" prefWidth="252.0" text="name" />
             <TableColumn fx:id="colPrice" prefWidth="233.0" text="price" />
-            <TableColumn fx:id="duration" prefWidth="197.0" text="durationcol" />
+            <TableColumn fx:id="durationcol" prefWidth="197.0" text="" />
         </columns>
       </TableView>
       <Button layoutX="71.0" layoutY="695.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="44.0" prefWidth="126.0" text="Save" />

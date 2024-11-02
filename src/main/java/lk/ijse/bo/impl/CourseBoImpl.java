@@ -7,6 +7,9 @@ import lk.ijse.dao.DaoType;
 import lk.ijse.dto.CoursesDTO;
 import lk.ijse.entity.Courses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CourseBoImpl implements CourseBo {
 
@@ -37,6 +40,17 @@ public class CourseBoImpl implements CourseBo {
     @Override
     public boolean updateCourse(CoursesDTO coursesDTO) {
       return   courseDao.update(new Courses(coursesDTO.getCourseId(),coursesDTO.getCourseName(),coursesDTO.getDuration(),coursesDTO.getCoursePrice()));
+    }
+
+    @Override
+    public List<CoursesDTO> loadTable() {
+        List<Courses> list = courseDao.loadTable();
+        List<CoursesDTO> coursesDTOList = new ArrayList<>();
+        for (Courses courses : list) {
+            CoursesDTO coursesDTO = new CoursesDTO(courses.getCourseId(),courses.getCourseName(),courses.getDuration(),courses.getCoursePrice());
+            coursesDTOList.add(coursesDTO);
+        }
+        return coursesDTOList;
     }
 
 

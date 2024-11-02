@@ -3,10 +3,11 @@ package lk.ijse.dao.impl;
 import lk.ijse.config.SessionFactoryConfuguration;
 import lk.ijse.dao.CourseDao;
 import lk.ijse.entity.Courses;
-import lk.ijse.entity.Student;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
 
 
 public class CourseDaoImpl implements CourseDao {
@@ -57,4 +58,13 @@ public class CourseDaoImpl implements CourseDao {
     }
 
 
+    @Override
+    public List<Courses> loadTable() {
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        List <Courses> list = session.createQuery("from Courses ").list();
+        tx.commit();
+        session.close();
+        return list;
+    }
 }
