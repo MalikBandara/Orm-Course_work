@@ -11,18 +11,19 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+@Entity
+public class Courses {
 
     @Id
-    private String username;
-    private String password;
-    private String role;
+    private String courseId;
+    private String courseName;
+    private String duration;
+    private double coursePrice;
 
-    @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL) // Cascade all operations
-    private List<Student> students;
+    @OneToMany(mappedBy = "courses", cascade = CascadeType.ALL) // Cascade all operations
+    private List<Registration> registrations;
 }
