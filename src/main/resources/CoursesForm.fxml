@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CourseFormController">
+   <children>
+      <Label layoutX="75.0" layoutY="131.0" text="Course id ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="courseId" layoutX="75.0" layoutY="190.0" />
+      <Label layoutX="75.0" layoutY="249.0" text="Course Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="courseName" layoutX="71.0" layoutY="298.0" />
+      <Label layoutX="75.0" layoutY="354.0" text="Course Price">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="coursePrice" layoutX="71.0" layoutY="403.0" />
+      <Label layoutX="75.0" layoutY="461.0" text="Duration">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="duaration" layoutX="71.0" layoutY="517.0" />
+      <TableView fx:id="tblcourse" layoutX="376.0" layoutY="122.0" prefHeight="456.0" prefWidth="952.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="269.0" text="id" />
+          <TableColumn fx:id="colname" prefWidth="252.0" text="name" />
+            <TableColumn fx:id="colPrice" prefWidth="233.0" text="price" />
+            <TableColumn fx:id="duration" prefWidth="197.0" text="duration" />
+        </columns>
+      </TableView>
+      <Button layoutX="71.0" layoutY="695.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="44.0" prefWidth="126.0" text="Save" />
+      <Button layoutX="224.0" layoutY="695.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="44.0" prefWidth="126.0" text="Update" />
+      <Button layoutX="386.0" layoutY="695.0" mnemonicParsing="false" onAction="#deleteonaction" prefHeight="44.0" prefWidth="126.0" text="Delete" />
+      <Button layoutX="545.0" layoutY="695.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="44.0" prefWidth="126.0" text="Search" />
+      <Button layoutX="700.0" layoutY="695.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="44.0" prefWidth="126.0" text="clear" />
+      <Label layoutX="763.0" layoutY="48.0" text="Courses">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -225,16 +225,15 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void updateOnAction(ActionEvent event) {
+        int studentIdText = Integer.parseInt(this.studentId.getText());
+        String studentName = this.studentName.getText();
+        String address = this.address.getText();
+        String contact = this.contact.getText();
+        String email = this.Email.getText();
+
+        User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
 
         try {
-            int studentIdText = Integer.parseInt(this.studentId.getText());
-            String studentName = this.studentName.getText();
-            String address = this.address.getText();
-            String contact = this.contact.getText();
-            String email = this.Email.getText();
-
-            User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
-
 
             StudentDTO studentDTO = new StudentDTO(studentIdText,studentName,address,contact,email,selectedCoordinator);
 
