@@ -124,7 +124,13 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void clearOnAction(ActionEvent event) {
-        // Implement clear form action
+        this.studentId.clear();
+        this.studentName.clear();
+        this.address.clear();
+        this.contact.clear();
+        this.Email.clear();
+        this.cmbCoId.getSelectionModel().clearSelection();
+
     }
 
     @FXML
