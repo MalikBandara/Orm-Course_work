@@ -25,4 +25,9 @@ public class StudentBoImpl implements StudentBo {
     public List<User> getUserIds() {
        return studentDao.getid();
     }
+
+    @Override
+    public boolean updateStudent(StudentDTO student) {
+     return studentDao.update(new Student(student.getStudentId(),student.getStudentName(),student.getStudentAddress(),student.getStudentPhone(),student.getStudentEmail(),student.getUserid()));
+    }
 }

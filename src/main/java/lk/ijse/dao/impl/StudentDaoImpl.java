@@ -33,7 +33,17 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean update(Student student) {
-        return false;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            session.update(student);
+            tx.commit();
+            System.out.println("Student updated successfully!");
+        }catch (HibernateException e) {
+            System.out.println("Failed to save student due to a database error.");
+        }
+        return true;
+
     }
 
     @Override

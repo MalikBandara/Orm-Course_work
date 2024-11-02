@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface StudentBo extends SuperBo {
 
-    public boolean addStudent(StudentDTO student);
+    boolean addStudent(StudentDTO student);
 
     List<User> getUserIds();
+
+    boolean updateStudent(StudentDTO studentDTO);
 }

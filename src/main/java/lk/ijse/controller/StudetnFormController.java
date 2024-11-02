@@ -69,9 +69,9 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void SaveOnAction(ActionEvent event) {
-        // Validate input fields
+
         int studentId = validateStudentId();
-        if (studentId == -1) return; // Validation failed
+        if (studentId == -1) return;
 
         String studentName = this.studentName.getText();
         String address = this.address.getText();
@@ -97,7 +97,7 @@ public class StudetnFormController implements Initializable {
         }
 
 
-        // Initialize Hibernate session and transaction
+
 
     }
 
@@ -142,7 +142,20 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void updateOnAction(ActionEvent event) {
-        // Implement update action
+        int studentIdText = Integer.parseInt(this.studentId.getText());
+        String studentName = this.studentName.getText();
+        String address = this.address.getText();
+        String contact = this.contact.getText();
+        String email = this.Email.getText();
+
+        User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
+
+
+        StudentDTO studentDTO = new StudentDTO(studentIdText,studentName,address,contact,email,selectedCoordinator);
+
+        studentBo.updateStudent(studentDTO);
+
+
     }
 
     @Override
