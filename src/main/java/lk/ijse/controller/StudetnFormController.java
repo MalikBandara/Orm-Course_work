@@ -71,33 +71,38 @@ public class StudetnFormController implements Initializable {
     @FXML
     void SaveOnAction(ActionEvent event) {
 
-        int studentId = validateStudentId();
-        if (studentId == -1) return;
+        try {
+            int studentId = validateStudentId();
+            if (studentId == -1) return;
 
-        String studentName = this.studentName.getText();
-        String address = this.address.getText();
-        String contact = this.contact.getText();
-        String email = this.Email.getText();
+            String studentName = this.studentName.getText();
+            String address = this.address.getText();
+            String contact = this.contact.getText();
+            String email = this.Email.getText();
 
-        User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
+            User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
 
-        if (selectedCoordinator == null) {
-            System.out.println("Please select a coordinator.");
-            return;
+            if (selectedCoordinator == null) {
+                System.out.println("Please select a coordinator.");
+                return;
+            }
+
+            // Create a new Student instance
+            StudentDTO studentDTO = new StudentDTO(studentId, studentName, address, contact, email, selectedCoordinator);
+            boolean b = studentBo.addStudent(studentDTO);
+
+            if (b==true){
+                System.out.println("Student added successfully 2 .");
+                loadStudentTable();
+            }
+            else {
+                System.out.println("Student addition failed.");
+            }
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-
-        // Create a new Student instance
-        StudentDTO studentDTO = new StudentDTO(studentId, studentName, address, contact, email, selectedCoordinator);
-        boolean b = studentBo.addStudent(studentDTO);
-
-        if (b==true){
-            System.out.println("Student added successfully 2 .");
-            loadStudentTable();
-        }
-        else {
-            System.out.println("Student addition failed.");
-        }
-
 
 
 
@@ -220,29 +225,34 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void updateOnAction(ActionEvent event) {
-        int studentIdText = Integer.parseInt(this.studentId.getText());
-        String studentName = this.studentName.getText();
-        String address = this.address.getText();
-        String contact = this.contact.getText();
-        String email = this.Email.getText();
+        try {
+            int studentIdText = Integer.parseInt(this.studentId.getText());
+            String studentName = this.studentName.getText();
+            String address = this.address.getText();
+            String contact = this.contact.getText();
+            String email = this.Email.getText();
 
-        User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
+            User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
 
 
-        StudentDTO studentDTO = new StudentDTO(studentIdText,studentName,address,contact,email,selectedCoordinator);
+            StudentDTO studentDTO = new StudentDTO(studentIdText,studentName,address,contact,email,selectedCoordinator);
 
-        boolean b = studentBo.updateStudent(studentDTO);
+            boolean b = studentBo.updateStudent(studentDTO);
 
-        if (b == true) {
-            // Create an alert for student update confirmation
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Update Successful");
-            alert.setHeaderText(null); // You can set a header text if you want
-            alert.setContentText("Student information has been updated successfully!");
+            if (b == true) {
+                // Create an alert for student update confirmation
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Update Successful");
+                alert.setHeaderText(null); // You can set a header text if you want
+                alert.setContentText("Student information has been updated successfully!");
 
-            // Show the alert and wait for the user to respond
-            alert.showAndWait();
-            loadStudentTable();
+                // Show the alert and wait for the user to respond
+                alert.showAndWait();
+                loadStudentTable();
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
 
