@@ -9,46 +9,27 @@
 
 <AnchorPane fx:id="MainPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1434.0" stylesheets="@css/dash.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminDashController">
    <children>
-      <AnchorPane fx:id="slidePane" layoutX="24.0" layoutY="17.0" prefHeight="745.0" prefWidth="188.0" stylesheets="@css/dash.css">
+      <AnchorPane fx:id="slidePane" layoutX="24.0" layoutY="17.0" prefHeight="747.0" prefWidth="246.0" stylesheets="@css/dash.css">
          <children>
-            <AnchorPane fx:id="courseclickpane" layoutX="47.0" layoutY="287.0" onDragDetected="#coursesOnClick" prefHeight="85.0" prefWidth="87.0" style="-fx-background-radius: 5px;" stylesheets="@css/dash.css">
-               <children>
-                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="17.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8-e-learning-50.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="userclickpane" layoutX="46.0" layoutY="406.0" onDragDetected="#UsersOnClick" prefHeight="79.0" prefWidth="87.0" style="-fx-background-radius: 5px;" stylesheets="@css/dash.css">
-               <children>
-                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="17.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8-users-50.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="54.0" layoutY="640.0" prefHeight="70.0" prefWidth="68.0" style="-fx-background-color: #E7E7E7; -fx-background-radius: 5px;">
-               <children>
-                  <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="9.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8-logout-64.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <Button fx:id="studenclickpane" layoutX="51.0" layoutY="176.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="70.0" prefWidth="87.0" stylesheets="@css/dash.css" />
-            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="74.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="147.0" fitWidth="136.0" layoutX="22.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/icons8-student-64.png" />
+                  <Image url="@images/dd-removebg-preview.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="67.0" layoutY="676.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-logout-64.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="studenclickpane" layoutX="33.0" layoutY="243.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="38.0" prefWidth="163.0" text="Student" />
+            <Button layoutX="33.0" layoutY="309.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Courses" />
+            <Button layoutX="33.0" layoutY="372.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Registrations" />
+            <Button layoutX="33.0" layoutY="443.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Users" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="StudentCountPane" layoutX="252.0" layoutY="212.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
-      <AnchorPane fx:id="CourseCountPane" layoutX="612.0" layoutY="212.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
-      <AnchorPane fx:id="UserCountPane" layoutX="436.0" layoutY="416.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
+      <AnchorPane fx:id="StudentCountPane" layoutX="308.0" layoutY="201.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
+      <AnchorPane fx:id="CourseCountPane" layoutX="700.0" layoutY="201.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
+      <AnchorPane fx:id="UserCountPane" layoutX="497.0" layoutY="391.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />
       <ImageView fitHeight="685.0" fitWidth="528.0" layoutX="863.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/man.png" />

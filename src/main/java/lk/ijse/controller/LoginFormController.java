@@ -13,6 +13,7 @@ import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.UserBo;
 import lk.ijse.dto.UserDTO;
 import javafx.fxml.Initializable;
+import lk.ijse.entity.Student;
 
 
 import java.net.URL;
@@ -63,8 +64,9 @@ public class LoginFormController implements Initializable {
         String role = cmbAdmin.getValue(); // Get the selected role from the ComboBox
         String password = passward.getText(); // Get the entered password
         String username = UserName.getText(); // Get the entered username
+        List<Student> students = new ArrayList<>();
 
-        UserDTO userDTO = new UserDTO(role, username, password);
+        UserDTO userDTO = new UserDTO(role, username, password,students);
         List<UserDTO> userList = new ArrayList<>();
 
         if(role.equals("Admin")) {

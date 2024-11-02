@@ -24,13 +24,14 @@ public class UserBoImpl implements UserBo {
     @Override
     public List<UserDTO> getUserDetails(UserDTO userDTO) {
         List<UserDTO> userdt = new ArrayList<>();
-        List<User> userDetails = userDao.getUserDetails(new User(userDTO.getRole(), userDTO.getUsername(), userDTO.getPassword()));
+        List<User> userDetails = userDao.getUserDetails(new User(userDTO.getRole(), userDTO.getUsername(), userDTO.getPassword(),userDTO.getStudents()));
 
         for (User user : userDetails){
-            UserDTO userDTO1 = new UserDTO(user.getUsername(), user.getPassword(),user.getRole());
+            UserDTO userDTO1 = new UserDTO(user.getUsername(), user.getPassword(),user.getRole(),user.getStudents());
             userdt.add(userDTO1);
         }
         return userdt;
+
     }
 
 
