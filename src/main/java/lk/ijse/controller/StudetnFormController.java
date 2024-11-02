@@ -225,6 +225,7 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void updateOnAction(ActionEvent event) {
+
         try {
             int studentIdText = Integer.parseInt(this.studentId.getText());
             String studentName = this.studentName.getText();
