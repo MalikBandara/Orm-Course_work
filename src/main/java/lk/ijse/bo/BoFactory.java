@@ -1,5 +1,6 @@
 package lk.ijse.bo;
 
+import lk.ijse.bo.impl.CourseBoImpl;
 import lk.ijse.bo.impl.StudentBoImpl;
 import lk.ijse.bo.impl.UserBoImpl;
 
@@ -22,6 +23,9 @@ public class BoFactory {
                     return new UserBoImpl();
                 case Student:
                     return new StudentBoImpl();
+                case Course:
+                    return new CourseBoImpl();
+
 
             }
             return null;

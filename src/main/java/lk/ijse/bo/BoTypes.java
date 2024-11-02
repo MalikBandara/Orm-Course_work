@@ -1,5 +1,5 @@
 package lk.ijse.bo;
 
 public enum BoTypes {
-    User , Student
+    User , Student,Course
 }

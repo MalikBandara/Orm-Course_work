@@ -4,17 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
 public class Courses {
 
@@ -26,4 +17,40 @@ public class Courses {
 
     @OneToMany(mappedBy = "courses", cascade = CascadeType.ALL) // Cascade all operations
     private List<Registration> registrations;
+
+    public Courses() {
+
+    }
+    public Courses(String courseId, String courseName, String duration, double coursePrice) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.duration = duration;
+        this.coursePrice = coursePrice;
+
+    }
+    public String getCourseId() {
+        return courseId;
+    }
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+    public String getCourseName() {
+        return courseName;
+    }
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    public String getDuration() {
+        return duration;
+    }
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+    public double getCoursePrice() {
+        return coursePrice;
+    }
+    public void setCoursePrice(double coursePrice) {
+        this.coursePrice = coursePrice;
+    }
+
 }

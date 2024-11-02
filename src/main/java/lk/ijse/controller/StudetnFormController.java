@@ -101,7 +101,7 @@ public class StudetnFormController implements Initializable {
 
 
         }catch (Exception e) {
-            e.printStackTrace();
+            showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
         }
 
 

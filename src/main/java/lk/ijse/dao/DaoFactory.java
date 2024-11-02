@@ -1,5 +1,6 @@
 package lk.ijse.dao;
 
+import lk.ijse.dao.impl.CourseDaoImpl;
 import lk.ijse.dao.impl.StudentDaoImpl;
 import lk.ijse.dao.impl.UserDaoImpl;
 
@@ -24,6 +25,10 @@ public class DaoFactory {
 
             case Student:
                 return new StudentDaoImpl();
+
+            case Course:
+                return new CourseDaoImpl();
+
 
         }
         return null;
