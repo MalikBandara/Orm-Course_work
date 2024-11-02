@@ -9,8 +9,7 @@ public class LauncherWrapper  {
         Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
         Transaction tx = session.beginTransaction();
 
-        Launcher.main(args
-        );
+        Launcher.main(args);
     }
 
 }

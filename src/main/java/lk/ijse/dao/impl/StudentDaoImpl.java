@@ -25,7 +25,6 @@ public class StudentDaoImpl implements StudentDao {
             System.out.println("Failed to save student due to a database error.");
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("An unexpected error occurred.");
             e.printStackTrace();
         }
         return true;
@@ -53,7 +52,11 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student find(String id) {
-        return null;
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            Student student = (Student) session.get(Student.class, id);
+            tx.commit();
+            return student;
     }
 
     @Override

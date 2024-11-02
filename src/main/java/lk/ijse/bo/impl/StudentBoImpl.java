@@ -30,4 +30,12 @@ public class StudentBoImpl implements StudentBo {
     public boolean updateStudent(StudentDTO student) {
      return studentDao.update(new Student(student.getStudentId(),student.getStudentName(),student.getStudentAddress(),student.getStudentPhone(),student.getStudentEmail(),student.getUserid()));
     }
+
+    @Override
+    public StudentDTO searchStudent(int studentIdText) {
+        Student student1 = studentDao.find(String.valueOf(studentIdText));
+
+        StudentDTO studentDTO = new StudentDTO(student1.getStudentId(), student1.getStudentName(), student1.getStudentAddress(), student1.getStudentPhone(), student1.getStudentEmail(), student1.getUserid());
+        return studentDTO;
+    }
 }

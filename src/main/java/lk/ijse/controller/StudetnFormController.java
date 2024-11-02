@@ -4,10 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
@@ -137,7 +134,19 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     void searchOnAction(ActionEvent event) {
-        // Implement search action
+        int studentIdText = Integer.parseInt(this.studentId.getText());
+
+
+        StudentDTO studentDTO = studentBo.searchStudent(studentIdText);
+        this.studentId.setText(String.valueOf(studentDTO.getStudentId()));
+        this.studentName.setText(studentDTO.getStudentName());
+        this.address.setText(studentDTO.getStudentAddress());
+        this.contact.setText(studentDTO.getStudentPhone());
+        this.Email.setText(studentDTO.getStudentEmail());
+        this.cmbCoId.getSelectionModel().select(studentDTO.getUserid());
+
+
+
     }
 
     @FXML
@@ -153,7 +162,18 @@ public class StudetnFormController implements Initializable {
 
         StudentDTO studentDTO = new StudentDTO(studentIdText,studentName,address,contact,email,selectedCoordinator);
 
-        studentBo.updateStudent(studentDTO);
+        boolean b = studentBo.updateStudent(studentDTO);
+
+        if (b == true) {
+            // Create an alert for student update confirmation
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Update Successful");
+            alert.setHeaderText(null); // You can set a header text if you want
+            alert.setContentText("Student information has been updated successfully!");
+
+            // Show the alert and wait for the user to respond
+            alert.showAndWait();
+        }
 
 
     }
