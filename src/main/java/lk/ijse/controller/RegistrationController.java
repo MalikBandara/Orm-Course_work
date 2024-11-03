@@ -98,47 +98,71 @@ public class RegistrationController implements Initializable {
     @FXML
     void btnsaveaction(ActionEvent event) {
         try {
+            // Validate registration ID
             String regId = registrationid.getText();
-            double payment = Double.parseDouble(this.payment.getText());
+            if (regId == null || regId.trim().isEmpty()) {
+                showAlert("Error", "Registration ID cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            // Validate payment
+            double payment;
+            try {
+                payment = Double.parseDouble(this.payment.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Error", "Invalid payment amount. Please enter a valid number.", Alert.AlertType.ERROR);
+                return; // Early exit if validation fails
+            }
+
+            // Validate date
             LocalDate selectedDate = datapicker.getValue();
+            if (selectedDate == null) {
+                showAlert("Error", "Please select a date.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
 
-            // Check if course and student are selected
+            // Validate selected course
             Courses course = cmbcourseid.getSelectionModel().getSelectedItem();
-            Student student = cmbstudentid.getSelectionModel().getSelectedItem();
-            Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
-
-
             if (course == null) {
-                showAlert("Error", "Please select a course.");
-                return;
+                showAlert("Error", "Please select a course.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
             }
 
+            // Validate selected student
+            Student student = cmbstudentid.getSelectionModel().getSelectedItem();
             if (student == null) {
-                showAlert("Error", "Please select a student.");
-                return;
+                showAlert("Error", "Please select a student.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
             }
 
+            // Validate selected payment method
+            Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
+            if (payment1 == null) {
+                showAlert("Error", "Please select a payment method.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
 
-            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student,payment1);
+            // Create RegistrationDTO with validated data
+            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student, payment1);
             System.out.println("DTO created: " + registrationDTO);
 
-            boolean b = registrationBo.saveRegistration(registrationDTO);
-            if (b) {
+            // Save registration and provide feedback
+            boolean isSaved = registrationBo.saveRegistration(registrationDTO);
+            if (isSaved) {
                 System.out.println("Registration saved");
                 loadRegistrationTable();
-                showAlert("Success", "Registration saved successfully.");
+                showAlert("Success", "Registration saved successfully.", Alert.AlertType.INFORMATION);
             } else {
-                showAlert("Error", "Failed to save registration.");
+                showAlert("Error", "Failed to save registration.", Alert.AlertType.ERROR);
             }
 
-        } catch (NumberFormatException e) {
-            showAlert("Error", "Invalid payment amount. Please enter a valid number.");
         } catch (Exception e) {
-            showAlert("Error", "An unexpected error occurred: " + e.getMessage());
+            showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
-    private void showAlert(String title, String message) {
+
+    private void showAlert(String title, String message, Alert.AlertType error) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -162,7 +186,7 @@ public class RegistrationController implements Initializable {
 
 
         if (id.isEmpty()) {
-            showAlert("Error", "Please enter a registration ID to delete.");
+            showAlert("Error", "Please enter a registration ID to delete.", Alert.AlertType.ERROR);
             return;
         }
 
@@ -170,12 +194,12 @@ public class RegistrationController implements Initializable {
         boolean success = registrationBo.deleteRegistration(id);
 
         if (success) {
-            showAlert("Success", "Registration with ID: " + id + " has been successfully deleted.");
+            showAlert("Success", "Registration with ID: " + id + " has been successfully deleted.", Alert.AlertType.ERROR);
             loadRegistrationTable();
 
             clearaction(event);
         } else {
-            showAlert("Error", "Failed to delete the registration. Please check the ID and try again.");
+            showAlert("Error", "Failed to delete the registration. Please check the ID and try again.", Alert.AlertType.ERROR);
         }
     }
 
@@ -186,7 +210,7 @@ public class RegistrationController implements Initializable {
 
         // Check if the ID field is empty
         if (id.isEmpty()) {
-            showAlert("Error", "Please enter a registration ID to search.");
+            showAlert("Error", "Please enter a registration ID to search.", Alert.AlertType.ERROR);
             return; // Exit if the ID is empty
         }
 
@@ -206,7 +230,7 @@ public class RegistrationController implements Initializable {
             System.out.println("Registration found: " + registrationDTO);
         } else {
             // Show an error alert if the registration is not found
-            showAlert("Error", "Registration not found for ID: " + id);
+            showAlert("Error", "Registration not found for ID: " + id, Alert.AlertType.ERROR);
         }
     }
 
@@ -216,7 +240,7 @@ public class RegistrationController implements Initializable {
     void updateonaction(ActionEvent event) {
         String regId = registrationid.getText();
         if (regId.isEmpty()) {
-            showAlert("Error", "Please enter a registration ID to update.");
+            showAlert("Error", "Please enter a registration ID to update.", Alert.AlertType.ERROR);
             return;
         }
 
@@ -224,13 +248,13 @@ public class RegistrationController implements Initializable {
         try {
             payment = Double.parseDouble(this.payment.getText());
         } catch (NumberFormatException e) {
-            showAlert("Error", "Invalid payment amount. Please enter a valid number.");
+            showAlert("Error", "Invalid payment amount. Please enter a valid number.", Alert.AlertType.ERROR);
             return;
         }
 
         LocalDate selectedDate = datapicker.getValue();
         if (selectedDate == null) {
-            showAlert("Error", "Please select a date.");
+            showAlert("Error", "Please select a date.", Alert.AlertType.ERROR);
             return;
         }
 
@@ -239,13 +263,13 @@ public class RegistrationController implements Initializable {
         Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
 
         if (course == null || student == null) {
-            showAlert("Error", "Please select both a course and a student.");
+            showAlert("Error", "Please select both a course and a student.", Alert.AlertType.ERROR);
             return;
         }
 
         boolean updateSuccessful = registrationBo.updateRegistration(new RegistrationDTO(regId, payment, selectedDate, course, student,payment1));
         loadRegistrationTable();
-        showAlert(updateSuccessful ? "Success" : "Error", updateSuccessful ? "Registration updated successfully." : "Failed to update registration for ID: " + regId);
+        showAlert(updateSuccessful ? "Success" : "Error", updateSuccessful ? "Registration updated successfully." : "Failed to update registration for ID: " + regId, Alert.AlertType.ERROR);
     }
 
 
