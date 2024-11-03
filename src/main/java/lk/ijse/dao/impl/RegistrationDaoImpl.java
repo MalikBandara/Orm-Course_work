@@ -99,5 +99,15 @@ public class RegistrationDaoImpl implements RegistrationDao {
         return StudentList;
     }
 
+    @Override
+    public List<Registration> loadTable() {
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        List <Registration> list  = session.createQuery("from Registration").list();
+        tx.commit();
+        session.close();
+        return list;
+    }
+
 
 }

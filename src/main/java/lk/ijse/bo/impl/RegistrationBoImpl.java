@@ -10,6 +10,7 @@ import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationBoImpl implements RegistrationBo {
@@ -54,5 +55,16 @@ public class RegistrationBoImpl implements RegistrationBo {
     @Override
     public boolean updateRegistration(RegistrationDTO registrationDTO) {
       return registrationDao.update(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent()));
+    }
+
+    @Override
+    public List<RegistrationDTO> loadTable() {
+        List<Registration> registrations = registrationDao.loadTable();
+        List<RegistrationDTO> registrationDTOS = new ArrayList<>();
+        for (Registration registration : registrations) {
+            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent());
+            registrationDTOS.add(registrationDTO);
+        }
+        return registrationDTOS;
     }
 }

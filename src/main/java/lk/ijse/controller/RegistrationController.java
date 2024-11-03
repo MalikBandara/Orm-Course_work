@@ -1,17 +1,22 @@
 package lk.ijse.controller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.RegistrationBo;
 import lk.ijse.dto.RegistrationDTO;
+import lk.ijse.dto.tm.RegistrationTm;
 import lk.ijse.entity.Courses;
-import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -26,19 +31,19 @@ public class RegistrationController implements Initializable {
     private ComboBox<Student> cmbstudentid;
 
     @FXML
-    private TableColumn<?, ?> coladvanced;
+    private TableColumn<RegistrationTm, Double> coladvanced;
 
     @FXML
-    private TableColumn<?, ?> colcourseid;
+    private TableColumn<RegistrationTm, Courses> colcourseid;
 
     @FXML
-    private TableColumn<?, ?> coldate;
+    private TableColumn<RegistrationTm, LocalDate> coldate;
 
     @FXML
-    private TableColumn<?, ?> colid;
+    private TableColumn<RegistrationTm, String> colid;
 
     @FXML
-    private TableColumn<?, ?> colstudent;
+    private TableColumn<RegistrationTm, Student> colstudent;
 
     @FXML
     private DatePicker datapicker;
@@ -50,12 +55,21 @@ public class RegistrationController implements Initializable {
     private TextField registrationid;
 
     @FXML
-    private TableView<?> tblregistration;
+    private Button btnback;
+
+    @FXML
+    private TableView<RegistrationTm> tblregistration;
 
     RegistrationBo registrationBo = (RegistrationBo) BoFactory.getBoFactory().getBo(BoTypes.Registration);
 
     @FXML
-    void btnbackonaction(ActionEvent event) {
+    void btnbackonaction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) btnback.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
 
     }
 
@@ -102,6 +116,7 @@ public class RegistrationController implements Initializable {
             boolean b = registrationBo.saveRegistration(registrationDTO);
             if (b) {
                 System.out.println("Registration saved");
+                loadRegistrationTable();
                 showAlert("Success", "Registration saved successfully.");
             } else {
                 showAlert("Error", "Failed to save registration.");
@@ -147,6 +162,7 @@ public class RegistrationController implements Initializable {
 
         if (success) {
             showAlert("Success", "Registration with ID: " + id + " has been successfully deleted.");
+            loadRegistrationTable();
 
             clearaction(event);
         } else {
@@ -218,6 +234,7 @@ public class RegistrationController implements Initializable {
         }
 
         boolean updateSuccessful = registrationBo.updateRegistration(new RegistrationDTO(regId, payment, selectedDate, course, student));
+        loadRegistrationTable();
         showAlert(updateSuccessful ? "Success" : "Error", updateSuccessful ? "Registration updated successfully." : "Failed to update registration for ID: " + regId);
     }
 
@@ -238,5 +255,25 @@ public class RegistrationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cmbCourseId();
         cmbStudentId();
+        loadRegistrationTable();
+        setCellValueFactory();
     }
+
+    private void loadRegistrationTable(){
+        tblregistration.getItems().clear();
+        List<RegistrationDTO> registrationDTOS = registrationBo.loadTable();
+
+        for (RegistrationDTO registrationDTO : registrationDTOS) {
+            RegistrationTm registrationTm = new RegistrationTm(registrationDTO.getRegistrationId(), registrationDTO.getAdvanced(), registrationDTO.getDate(), registrationDTO.getCourses(), registrationDTO.getStudent());
+            tblregistration.getItems().add(registrationTm);
+        }
+    }
+    private void setCellValueFactory() {
+        colid.setCellValueFactory(new PropertyValueFactory<>("registrationId"));
+        coladvanced.setCellValueFactory(new PropertyValueFactory<>("advanced"));
+        coldate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colcourseid.setCellValueFactory(new PropertyValueFactory<>("courses"));
+        colstudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+    }
+
 }

@@ -12,4 +12,5 @@ public interface RegistrationDao extends CrudDao<Registration>{
     List<Student> getStudentIds();
 
 
+    List<Registration> loadTable();
 }

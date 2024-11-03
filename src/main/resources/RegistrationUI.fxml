@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegistrationController">
    <children>
       <Label layoutX="120.0" layoutY="138.0" text="Registration ID">
@@ -62,6 +61,6 @@
       <Button layoutX="723.0" layoutY="649.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="55.0" prefWidth="126.0" text="delete" />
       <Button layoutX="864.0" layoutY="649.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="55.0" prefWidth="126.0" text="search" />
       <Button layoutX="1016.0" layoutY="649.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="55.0" prefWidth="126.0" text="clear" />
-      <Button layoutX="1265.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="126.0" text="back" />
+      <Button fx:id="btnback" layoutX="1265.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="126.0" text="back" />
    </children>
 </AnchorPane>

@@ -19,5 +19,7 @@ public interface RegistrationBo extends SuperBo{
     boolean deleteRegistration(String id);
 
     boolean updateRegistration(RegistrationDTO registrationDTO);
+
+    List <RegistrationDTO> loadTable();
 }
 
