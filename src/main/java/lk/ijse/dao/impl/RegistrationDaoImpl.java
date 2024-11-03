@@ -35,7 +35,17 @@ public class RegistrationDaoImpl implements RegistrationDao {
 
     @Override
     public boolean delete(String t) {
-        return false;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            session.delete(session.get(Registration.class, t));
+            tx.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     @Override

@@ -127,42 +127,69 @@ public class RegistrationController implements Initializable {
     void clearaction(ActionEvent event) {
         registrationid.setText("");
         payment.setText("");
+        datapicker.setValue(null);
 
 
     }
 
     @FXML
     void deleteaction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void searchaction(ActionEvent event) {
         String id = registrationid.getText();
 
-        // Attempt to search for the registration
-        RegistrationDTO registrationDTO = registrationBo.searchRegistrations(id);
 
-        // Check if registrationDTO is not null to avoid NullPointerException
-        if (registrationDTO != null) {
-            // Update the UI fields with the values from the registrationDTO
-            this.registrationid.setText(String.valueOf(registrationDTO.getRegistrationId()));
-            this.payment.setText(String.valueOf(registrationDTO.getAdvanced()));
-            this.datapicker.setValue(registrationDTO.getDate());
+        if (id.isEmpty()) {
+            showAlert("Error", "Please enter a registration ID to delete.");
+            return;
+        }
 
-            // Optionally set the selected course and student in their respective ComboBoxes
-            cmbcourseid.getSelectionModel().select(registrationDTO.getCourses());
-            cmbstudentid.getSelectionModel().select(registrationDTO.getStudent());
 
-            System.out.println("Registration found: " + registrationDTO);
+        boolean success = registrationBo.deleteRegistration(id);
+
+        if (success) {
+            showAlert("Success", "Registration with ID: " + id + " has been successfully deleted.");
+
+            clearaction(event);
         } else {
-            showAlert("Error", "Registration not found for ID: " + id);
+            showAlert("Error", "Failed to delete the registration. Please check the ID and try again.");
         }
     }
 
 
     @FXML
+    void searchaction(ActionEvent event) {
+        String id = registrationid.getText();
+
+        // Check if the ID field is empty
+        if (id.isEmpty()) {
+            showAlert("Error", "Please enter a registration ID to search.");
+            return; // Exit if the ID is empty
+        }
+
+        // Attempt to find the registration based on the ID
+        RegistrationDTO registrationDTO = registrationBo.searchRegistrations(id);
+
+        if (registrationDTO != null) {
+            // Populate fields with the found registration details
+            this.registrationid.setText(String.valueOf(registrationDTO.getRegistrationId()));
+            this.payment.setText(String.valueOf(registrationDTO.getAdvanced()));
+            this.datapicker.setValue(registrationDTO.getDate());
+
+            // Set the selected course and student in the combo boxes
+            cmbcourseid.getSelectionModel().select(registrationDTO.getCourses());
+            cmbstudentid.getSelectionModel().select(registrationDTO.getStudent());
+
+            System.out.println("Registration found: " + registrationDTO);
+        } else {
+            // Show an error alert if the registration is not found
+            showAlert("Error", "Registration not found for ID: " + id);
+        }
+    }
+
+
+
+    @FXML
     void updateonaction(ActionEvent event) {
+
 
     }
 

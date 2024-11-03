@@ -9,7 +9,7 @@ import lk.ijse.entity.Courses;
 import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class RegistrationBoImpl implements RegistrationBo {
@@ -33,11 +33,21 @@ public class RegistrationBoImpl implements RegistrationBo {
 
     @Override
     public RegistrationDTO searchRegistrations(String id) {
-        Registration registration = registrationDao.find(id);
+        try {
+            Registration registration = registrationDao.find(id);
 
-        RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent());
-        return registrationDTO;
+            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent());
+            return registrationDTO;
+        }catch (Exception e){
+            return null;
+        }
 
 
+
+    }
+
+    @Override
+    public boolean deleteRegistration(String id) {
+     return registrationDao.delete(id);
     }
 }
