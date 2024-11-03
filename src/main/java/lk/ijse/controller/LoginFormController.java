@@ -70,6 +70,11 @@ public class LoginFormController implements Initializable {
         UserDTO userDTO = new UserDTO(role, username, password,students);
         List<UserDTO> userList = new ArrayList<>();
 
+        if (role == null) {
+            new Alert(Alert.AlertType.INFORMATION, "Role is Empty").show();
+            return; // Exit the method early
+        }
+
         if(role.equals("Admin")) {
             userList = userBo.getUserDetails(userDTO);
             try {
@@ -98,7 +103,7 @@ public class LoginFormController implements Initializable {
                 }
 
             }catch (Exception e){
-                e.printStackTrace();
+                new Alert(Alert.AlertType.INFORMATION, "Role is Empty").show();
             }
         } else if (role.equals("Coordinator")) {
             userList = userBo.getUserDetails(userDTO);

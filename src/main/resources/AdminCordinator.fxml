@@ -48,5 +48,6 @@
          </image>
       </ImageView>
       <Button fx:id="back" layoutX="1212.0" layoutY="705.0" mnemonicParsing="false" onAction="#backonaction" prefHeight="52.0" prefWidth="169.0" text="back" />
+      <Button fx:id="btnpay" layoutX="599.0" layoutY="513.0" mnemonicParsing="false" onAction="#paymentaction" prefHeight="52.0" prefWidth="169.0" text="Add Payment Id" />
     </children>
 </AnchorPane>

@@ -86,7 +86,7 @@ public boolean save(Registration registration) {
         if (tx != null) {
             tx.rollback();
         }
-        e.printStackTrace();
+
         return false;
 
     } finally {

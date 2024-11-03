@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 public class CoRegisterForm implements Initializable {
 
+
     @FXML
     private ComboBox<Payment> cmbPaymentID;
     @FXML
@@ -123,7 +124,7 @@ public class CoRegisterForm implements Initializable {
                 loadRegistrationTable();
                 showAlert("Success", "Registration saved successfully.");
             } else {
-                showAlert("Error", "Failed to save registration.");
+                showAlert("Error", "Can't use payment id two times.");
             }
 
         } catch (NumberFormatException e) {

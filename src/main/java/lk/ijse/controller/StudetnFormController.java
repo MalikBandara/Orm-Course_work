@@ -76,6 +76,7 @@ public class StudetnFormController implements Initializable {
 
     StudentBo studentBo = (StudentBo) BoFactory.getBoFactory().getBo(BoTypes.Student);
 
+
     @FXML
     void SaveOnAction(ActionEvent event) {
         try {
@@ -88,9 +89,31 @@ public class StudetnFormController implements Initializable {
             String email = this.Email.getText();
             User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
 
+            // Validate fields
+            if (studentName == null || studentName.trim().isEmpty()) {
+                showAlert("Error Message", "Student Name cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            if (address == null || address.trim().isEmpty()) {
+                showAlert("Error Message", "Address cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            if (contact == null || contact.trim().isEmpty()) {
+                showAlert("Error Message", "Contact cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            // Validate email format (basic validation)
+            if (email == null || email.trim().isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                showAlert("Error Message", "Invalid email address.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
             if (selectedCoordinator == null) {
                 showAlert("Input Error", "Please select a coordinator.", Alert.AlertType.WARNING);
-                return;
+                return; // Early exit if validation fails
             }
 
             // Create a new StudentDTO instance
@@ -105,25 +128,26 @@ public class StudetnFormController implements Initializable {
             }
 
         } catch (Exception e) {
-            showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
-
+            showAlert("Error", "A student with this ID already exists. Please use a different ID.", Alert.AlertType.WARNING);
         }
     }
 
     private int validateStudentId() {
         String studentIdText = this.studentId.getText();
         if (studentIdText.isEmpty()) {
-            System.out.println("Student ID cannot be empty.");
+            showAlert("Input Error", "Student ID cannot be empty.", Alert.AlertType.WARNING);
             return -1;
         }
 
         try {
             return Integer.parseInt(studentIdText);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid Student ID. Please enter a valid number.");
+            showAlert("Input Error", "Invalid Student ID. Please enter a valid number.", Alert.AlertType.WARNING);
             return -1;
         }
     }
+
+
 
 
 
