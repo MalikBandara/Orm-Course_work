@@ -26,6 +26,7 @@
                   <Image url="@images/icons8-logout-64.png" />
                </image>
             </ImageView>
+            <Button fx:id="paymentbtn" layoutX="32.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnpaymentclick" prefHeight="38.0" prefWidth="163.0" text="Payment" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="StudentCountPane" layoutX="308.0" layoutY="201.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />

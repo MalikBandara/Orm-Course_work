@@ -1,5 +1,6 @@
 package lk.ijse.dto;
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +21,5 @@ public class RegistrationDTO {
     private LocalDate date;
     private Courses courses;
     private Student student;
+    private Payment payment;
 }

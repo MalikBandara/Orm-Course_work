@@ -14,6 +14,7 @@ import lk.ijse.bo.RegistrationBo;
 import lk.ijse.dto.RegistrationDTO;
 import lk.ijse.dto.tm.RegistrationTm;
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Student;
 
 import java.io.IOException;
@@ -24,6 +25,8 @@ import java.util.ResourceBundle;
 
 public class RegistrationController implements Initializable {
 
+    @FXML
+    private ComboBox<Payment> cmbPaymentID;
     @FXML
     private ComboBox<Courses> cmbcourseid;
 
@@ -56,6 +59,9 @@ public class RegistrationController implements Initializable {
 
     @FXML
     private Button btnback;
+
+    @FXML
+    private TableColumn<RegistrationTm, Double> paymentId;
 
     @FXML
     private TableView<RegistrationTm> tblregistration;
@@ -99,6 +105,8 @@ public class RegistrationController implements Initializable {
             // Check if course and student are selected
             Courses course = cmbcourseid.getSelectionModel().getSelectedItem();
             Student student = cmbstudentid.getSelectionModel().getSelectedItem();
+            Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
+
 
             if (course == null) {
                 showAlert("Error", "Please select a course.");
@@ -110,7 +118,8 @@ public class RegistrationController implements Initializable {
                 return;
             }
 
-            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student);
+
+            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student,payment1);
             System.out.println("DTO created: " + registrationDTO);
 
             boolean b = registrationBo.saveRegistration(registrationDTO);
@@ -227,13 +236,14 @@ public class RegistrationController implements Initializable {
 
         Courses course = cmbcourseid.getSelectionModel().getSelectedItem();
         Student student = cmbstudentid.getSelectionModel().getSelectedItem();
+        Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
 
         if (course == null || student == null) {
             showAlert("Error", "Please select both a course and a student.");
             return;
         }
 
-        boolean updateSuccessful = registrationBo.updateRegistration(new RegistrationDTO(regId, payment, selectedDate, course, student));
+        boolean updateSuccessful = registrationBo.updateRegistration(new RegistrationDTO(regId, payment, selectedDate, course, student,payment1));
         loadRegistrationTable();
         showAlert(updateSuccessful ? "Success" : "Error", updateSuccessful ? "Registration updated successfully." : "Failed to update registration for ID: " + regId);
     }
@@ -251,12 +261,18 @@ public class RegistrationController implements Initializable {
         cmbstudentid.getItems().addAll(studentId);
     }
 
+    private void paymentId(){
+        List<Payment> paymentID = registrationBo.getPaymentID();
+        cmbPaymentID.getItems().addAll(paymentID);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cmbCourseId();
         cmbStudentId();
         loadRegistrationTable();
         setCellValueFactory();
+        paymentId();
     }
 
     private void loadRegistrationTable(){
@@ -264,7 +280,7 @@ public class RegistrationController implements Initializable {
         List<RegistrationDTO> registrationDTOS = registrationBo.loadTable();
 
         for (RegistrationDTO registrationDTO : registrationDTOS) {
-            RegistrationTm registrationTm = new RegistrationTm(registrationDTO.getRegistrationId(), registrationDTO.getAdvanced(), registrationDTO.getDate(), registrationDTO.getCourses(), registrationDTO.getStudent());
+            RegistrationTm registrationTm = new RegistrationTm(registrationDTO.getRegistrationId(), registrationDTO.getAdvanced(), registrationDTO.getDate(), registrationDTO.getCourses(), registrationDTO.getStudent(),registrationDTO.getPayment());
             tblregistration.getItems().add(registrationTm);
         }
     }
@@ -274,6 +290,8 @@ public class RegistrationController implements Initializable {
         coldate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colcourseid.setCellValueFactory(new PropertyValueFactory<>("courses"));
         colstudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+        paymentId.setCellValueFactory(new PropertyValueFactory<>("payment"));
+
     }
 
 }

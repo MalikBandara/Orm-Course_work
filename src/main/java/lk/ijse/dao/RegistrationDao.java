@@ -1,6 +1,7 @@
 package lk.ijse.dao;
 
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 
@@ -13,4 +14,6 @@ public interface RegistrationDao extends CrudDao<Registration>{
 
 
     List<Registration> loadTable();
+
+    List<Payment> getpayId();
 }

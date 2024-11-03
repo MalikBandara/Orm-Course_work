@@ -1,9 +1,6 @@
 package lk.ijse.bo;
 
-import lk.ijse.bo.impl.CourseBoImpl;
-import lk.ijse.bo.impl.RegistrationBoImpl;
-import lk.ijse.bo.impl.StudentBoImpl;
-import lk.ijse.bo.impl.UserBoImpl;
+import lk.ijse.bo.impl.*;
 
 public class BoFactory {
 
@@ -28,6 +25,8 @@ public class BoFactory {
                     return new CourseBoImpl();
                 case Registration:
                     return new RegistrationBoImpl();
+                case Payment:
+                    return new PaymentBoImpl();
 
 
             }

@@ -6,6 +6,7 @@ import lk.ijse.dao.DaoType;
 import lk.ijse.dao.RegistrationDao;
 import lk.ijse.dto.RegistrationDTO;
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 
@@ -18,7 +19,7 @@ public class RegistrationBoImpl implements RegistrationBo {
     RegistrationDao registrationDao = (RegistrationDao) DaoFactory.getInstance().getDao(DaoType.Registration);
     @Override
     public boolean saveRegistration(RegistrationDTO registrationDTO) {
-       return registrationDao.save(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent()));
+       return registrationDao.save(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent(),registrationDTO.getPayment()));
     }
 
     @Override
@@ -37,7 +38,7 @@ public class RegistrationBoImpl implements RegistrationBo {
         try {
             Registration registration = registrationDao.find(id);
 
-            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent());
+            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent(),registration.getPayment());
             return registrationDTO;
         }catch (Exception e){
             return null;
@@ -54,7 +55,7 @@ public class RegistrationBoImpl implements RegistrationBo {
 
     @Override
     public boolean updateRegistration(RegistrationDTO registrationDTO) {
-      return registrationDao.update(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent()));
+      return registrationDao.update(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent(),registrationDTO.getPayment()));
     }
 
     @Override
@@ -62,9 +63,14 @@ public class RegistrationBoImpl implements RegistrationBo {
         List<Registration> registrations = registrationDao.loadTable();
         List<RegistrationDTO> registrationDTOS = new ArrayList<>();
         for (Registration registration : registrations) {
-            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent());
+            RegistrationDTO registrationDTO = new RegistrationDTO(registration.getRegistrationId(), registration.getAdvanced(), registration.getDate(), registration.getCourses(), registration.getStudent(),registration.getPayment());
             registrationDTOS.add(registrationDTO);
         }
         return registrationDTOS;
+    }
+
+    @Override
+    public List<Payment> getPaymentID() {
+       return registrationDao.getpayId();
     }
 }

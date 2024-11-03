@@ -1,9 +1,6 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +27,7 @@ public class Registration {
 
     @ManyToOne(cascade = CascadeType.ALL) // Cascade all operations
     private Student student;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Payment payment;
 }

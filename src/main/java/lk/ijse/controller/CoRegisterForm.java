@@ -15,6 +15,7 @@ import lk.ijse.bo.RegistrationBo;
 import lk.ijse.dto.RegistrationDTO;
 import lk.ijse.dto.tm.RegistrationTm;
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Student;
 
 import java.io.IOException;
@@ -25,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class CoRegisterForm implements Initializable {
 
+    @FXML
+    private ComboBox<Payment> cmbPaymentID;
     @FXML
     private ComboBox<Courses> cmbcourseid;
 
@@ -95,6 +98,8 @@ public class CoRegisterForm implements Initializable {
             // Check if course and student are selected
             Courses course = cmbcourseid.getSelectionModel().getSelectedItem();
             Student student = cmbstudentid.getSelectionModel().getSelectedItem();
+            Payment payment1 = cmbPaymentID.getSelectionModel().getSelectedItem();
+
 
             if (course == null) {
                 showAlert("Error", "Please select a course.");
@@ -106,7 +111,7 @@ public class CoRegisterForm implements Initializable {
                 return;
             }
 
-            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student);
+            RegistrationDTO registrationDTO = new RegistrationDTO(regId, payment, selectedDate, course, student,payment1);
             System.out.println("DTO created: " + registrationDTO);
 
             boolean b = registrationBo.saveRegistration(registrationDTO);
@@ -138,7 +143,7 @@ public class CoRegisterForm implements Initializable {
         List<RegistrationDTO> registrationDTOS = registrationBo.loadTable();
 
         for (RegistrationDTO registrationDTO : registrationDTOS) {
-            RegistrationTm registrationTm = new RegistrationTm(registrationDTO.getRegistrationId(), registrationDTO.getAdvanced(), registrationDTO.getDate(), registrationDTO.getCourses(), registrationDTO.getStudent());
+            RegistrationTm registrationTm = new RegistrationTm(registrationDTO.getRegistrationId(), registrationDTO.getAdvanced(), registrationDTO.getDate(), registrationDTO.getCourses(), registrationDTO.getStudent(),registrationDTO.getPayment());
             tblregistration.getItems().add(registrationTm);
         }
     }
@@ -156,5 +161,11 @@ public class CoRegisterForm implements Initializable {
         setCellValueFactory();
         cmbCourseId();
         cmbStudentId();
+        paymentId();
     }
+    private void paymentId(){
+        List<Payment> paymentID = registrationBo.getPaymentID();
+        cmbPaymentID.getItems().addAll(paymentID);
+    }
+
 }

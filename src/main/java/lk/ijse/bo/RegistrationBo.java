@@ -1,7 +1,9 @@
 package lk.ijse.bo;
 
+import lk.ijse.dto.PaymentDTO;
 import lk.ijse.dto.RegistrationDTO;
 import lk.ijse.entity.Courses;
+import lk.ijse.entity.Payment;
 import lk.ijse.entity.Student;
 
 
@@ -21,5 +23,7 @@ public interface RegistrationBo extends SuperBo{
     boolean updateRegistration(RegistrationDTO registrationDTO);
 
     List <RegistrationDTO> loadTable();
+
+    List<Payment> getPaymentID();
 }
 

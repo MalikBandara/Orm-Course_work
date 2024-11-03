@@ -37,6 +37,10 @@ public class AdminDashController {
     private AnchorPane slidePane;
 
     @FXML
+    private Button paymentbtn;
+
+
+    @FXML
     private Button stbtn;
 
     @FXML
@@ -88,6 +92,15 @@ public class AdminDashController {
         Parent root = FXMLLoader.load(getClass().getResource("/LoginPage.fxml"));
         Scene scene1 = new Scene(root);
         Stage stage1 = (Stage) logout.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
+    }
+
+    public void btnpaymentclick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/paymentForm.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) paymentbtn.getScene().getWindow();
         stage1.setScene(scene1);
         stage1.setTitle("Courses Form");
         stage1.centerOnScreen();

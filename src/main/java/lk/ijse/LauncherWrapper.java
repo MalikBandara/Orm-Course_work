@@ -9,7 +9,6 @@ LauncherWrapper  {
     public static void main(String[] args) {
         Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
         Transaction tx = session.beginTransaction();
-
         Launcher.main(args);
     }
 

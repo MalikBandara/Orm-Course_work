@@ -35,25 +35,26 @@
          </font>
       </Label>
       <DatePicker fx:id="datapicker" layoutX="115.0" layoutY="440.0" />
-      <Label layoutX="109.0" layoutY="513.0" text="Course ID">
+      <Label layoutX="114.0" layoutY="486.0" text="Course ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbcourseid" layoutX="115.0" layoutY="566.0" prefWidth="150.0" />
-      <Label layoutX="117.0" layoutY="623.0" prefHeight="26.0" prefWidth="143.0" text="Student ID">
+      <ComboBox fx:id="cmbcourseid" layoutX="110.0" layoutY="531.0" prefWidth="150.0" />
+      <Label layoutX="110.0" layoutY="586.0" prefHeight="26.0" prefWidth="143.0" text="Student ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbstudentid" layoutX="114.0" layoutY="684.0" prefWidth="150.0" />
-      <TableView fx:id="tblregistration" layoutX="416.0" layoutY="138.0" prefHeight="461.0" prefWidth="965.0">
+      <ComboBox fx:id="cmbstudentid" layoutX="107.0" layoutY="637.0" prefWidth="150.0" />
+      <TableView fx:id="tblregistration" layoutX="357.0" layoutY="138.0" prefHeight="461.0" prefWidth="965.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="127.0" text="id" />
-          <TableColumn fx:id="coladvanced" prefWidth="180.0" text="advanced" />
-            <TableColumn fx:id="coldate" prefWidth="206.0" text="date" />
-            <TableColumn fx:id="colcourseid" prefWidth="200.0" text="course id " />
-            <TableColumn fx:id="colstudent" prefWidth="251.0" text="student id" />
+          <TableColumn fx:id="coladvanced" prefWidth="163.0" text="advanced" />
+            <TableColumn fx:id="coldate" prefWidth="142.0" text="date" />
+            <TableColumn fx:id="colcourseid" prefWidth="195.0" text="course id " />
+            <TableColumn fx:id="colstudent" prefWidth="161.0" text="student id" />
+            <TableColumn fx:id="paymentId" prefWidth="176.0" text="PaymentId" />
         </columns>
       </TableView>
       <Button layoutX="422.0" layoutY="649.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="126.0" text="save" />
@@ -62,5 +63,11 @@
       <Button layoutX="864.0" layoutY="649.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="55.0" prefWidth="126.0" text="search" />
       <Button layoutX="1016.0" layoutY="649.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="55.0" prefWidth="126.0" text="clear" />
       <Button fx:id="btnback" layoutX="1265.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="126.0" text="back" />
+      <Label layoutX="110.0" layoutY="684.0" prefHeight="26.0" prefWidth="143.0" text="Payment ID">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbPaymentID" layoutX="107.0" layoutY="724.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
