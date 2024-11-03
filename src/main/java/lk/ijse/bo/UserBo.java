@@ -11,4 +11,12 @@ public interface UserBo  extends SuperBo{
 
 
       List<UserDTO> getUserDetails(UserDTO userDTO);
+
+      boolean saveUsers(UserDTO coordinator);
+
+    boolean updateUser(UserDTO coordinator);
+
+    UserDTO searchUsers(String username);
+
+    boolean deleteUser(String username);
 }

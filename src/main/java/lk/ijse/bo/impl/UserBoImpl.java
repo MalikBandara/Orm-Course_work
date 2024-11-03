@@ -17,6 +17,7 @@ public class UserBoImpl implements UserBo {
 
 
 
+
     public List<String> getAllRoles() {
         return userDao.getAllRoles();
     }
@@ -32,6 +33,30 @@ public class UserBoImpl implements UserBo {
         }
         return userdt;
 
+    }
+
+    @Override
+    public boolean saveUsers(UserDTO coordinator) {
+      return   userDao.save(new User(coordinator.getUsername(), coordinator.getPassword(), coordinator.getRole()));
+    }
+
+    @Override
+    public boolean updateUser(UserDTO coordinator) {
+       return userDao.update(new User(coordinator.getUsername(), coordinator.getPassword(), coordinator.getRole()));
+    }
+
+    @Override
+    public UserDTO searchUsers(String username) {
+        User user = userDao.find(username);
+
+        UserDTO userDTO = new UserDTO(user.getUsername(), user.getPassword(), user.getRole(), user.getStudents());
+        return userDTO;
+
+    }
+
+    @Override
+    public boolean deleteUser(String username) {
+       return userDao.delete(username);
     }
 
 

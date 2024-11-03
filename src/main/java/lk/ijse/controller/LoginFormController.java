@@ -100,13 +100,13 @@ public class LoginFormController implements Initializable {
             }catch (Exception e){
                 e.printStackTrace();
             }
-        } else if (role.equals("Cordinator")) {
+        } else if (role.equals("Coordinator")) {
             userList = userBo.getUserDetails(userDTO);
             try {
                 boolean isCredintialsok = false;
                 for (UserDTO userDTO1 : userList) {
                     if(userDTO1.getUsername().equals(username)&&userDTO1.getPassword().equals(password)) {
-                        new Alert(Alert.AlertType.INFORMATION, "Welcome Cordinator " + username).show();
+                        new Alert(Alert.AlertType.INFORMATION, "Welcome Coordinator " + username).show();
                         userDTO1.getUsername();
                         userDTO1.getPassword();
 
@@ -125,7 +125,7 @@ public class LoginFormController implements Initializable {
                     }
                 }
                 if (isCredintialsok==false) {
-                    new Alert(Alert.AlertType.INFORMATION, "Invalid Cordinator Credentials").show();
+                    new Alert(Alert.AlertType.INFORMATION, "Invalid Coordinator Credentials").show();
                 }
 
             }catch (Exception e){

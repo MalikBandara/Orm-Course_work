@@ -16,6 +16,8 @@ import java.util.List;
 
 public class User {
 
+
+
     @Id
     private String username;
     private String password;
@@ -23,6 +25,13 @@ public class User {
 
     @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL) // Cascade all operations
     private List<Student> students;
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
 
     @Override
     public String toString() {

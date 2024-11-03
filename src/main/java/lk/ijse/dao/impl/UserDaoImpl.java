@@ -17,12 +17,32 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean save(User user) {
-        return false;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            session.save(user);
+            tx.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     @Override
     public boolean update(User user) {
-        return false;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            session.update(user);
+            tx.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     @Override
@@ -32,12 +52,28 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean delete(String t) {
-        return false;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            session.delete(session.get(User.class, t));
+            tx.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     @Override
     public User find(String id) {
-        return null;
+
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        User user = (User) session.get(User.class, id);
+        tx.commit();
+        session.close();
+        return user;
     }
 
 
