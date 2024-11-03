@@ -50,4 +50,9 @@ public class RegistrationBoImpl implements RegistrationBo {
     public boolean deleteRegistration(String id) {
      return registrationDao.delete(id);
     }
+
+    @Override
+    public boolean updateRegistration(RegistrationDTO registrationDTO) {
+      return registrationDao.update(new Registration(registrationDTO.getRegistrationId(),registrationDTO.getAdvanced(),registrationDTO.getDate(),registrationDTO.getCourses(),registrationDTO.getStudent()));
+    }
 }

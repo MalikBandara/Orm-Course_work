@@ -25,7 +25,19 @@ public class RegistrationDaoImpl implements RegistrationDao {
 
     @Override
     public boolean update(Registration registration) {
-        return false;
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction tx = session.beginTransaction();
+        try {
+
+            session.update(registration);
+            tx.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            tx.rollback();
+            return false;
+        }
+
     }
 
     @Override

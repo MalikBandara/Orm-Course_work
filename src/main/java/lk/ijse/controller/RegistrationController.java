@@ -189,9 +189,38 @@ public class RegistrationController implements Initializable {
 
     @FXML
     void updateonaction(ActionEvent event) {
+        String regId = registrationid.getText();
+        if (regId.isEmpty()) {
+            showAlert("Error", "Please enter a registration ID to update.");
+            return;
+        }
 
+        double payment;
+        try {
+            payment = Double.parseDouble(this.payment.getText());
+        } catch (NumberFormatException e) {
+            showAlert("Error", "Invalid payment amount. Please enter a valid number.");
+            return;
+        }
 
+        LocalDate selectedDate = datapicker.getValue();
+        if (selectedDate == null) {
+            showAlert("Error", "Please select a date.");
+            return;
+        }
+
+        Courses course = cmbcourseid.getSelectionModel().getSelectedItem();
+        Student student = cmbstudentid.getSelectionModel().getSelectedItem();
+
+        if (course == null || student == null) {
+            showAlert("Error", "Please select both a course and a student.");
+            return;
+        }
+
+        boolean updateSuccessful = registrationBo.updateRegistration(new RegistrationDTO(regId, payment, selectedDate, course, student));
+        showAlert(updateSuccessful ? "Success" : "Error", updateSuccessful ? "Registration updated successfully." : "Failed to update registration for ID: " + regId);
     }
+
 
     private void cmbCourseId(){
         List<Courses> courseId = registrationBo.getCourseId();

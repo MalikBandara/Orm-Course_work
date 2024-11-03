@@ -25,7 +25,7 @@ public class Registration {
 
     private LocalDate date;
 
-    @ManyToOne(cascade = CascadeType.ALL) // Cascade all operations
+    @ManyToOne
     private Courses courses;
 
     @ManyToOne(cascade = CascadeType.ALL) // Cascade all operations

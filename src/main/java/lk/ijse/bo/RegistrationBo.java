@@ -17,5 +17,7 @@ public interface RegistrationBo extends SuperBo{
     RegistrationDTO searchRegistrations(String id);
 
     boolean deleteRegistration(String id);
+
+    boolean updateRegistration(RegistrationDTO registrationDTO);
 }
 
