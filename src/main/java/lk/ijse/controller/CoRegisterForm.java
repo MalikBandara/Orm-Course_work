@@ -50,6 +50,9 @@ public class CoRegisterForm implements Initializable {
     private TableColumn<RegistrationTm, Student> colstudent;
 
     @FXML
+    private TableColumn<RegistrationTm, Double> paymentId;
+
+    @FXML
     private DatePicker datapicker;
 
     @FXML
@@ -153,6 +156,7 @@ public class CoRegisterForm implements Initializable {
         coldate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colcourseid.setCellValueFactory(new PropertyValueFactory<>("courses"));
         colstudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+        paymentId.setCellValueFactory(new PropertyValueFactory<>("payment"));
     }
 
     @Override

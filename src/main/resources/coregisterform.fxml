@@ -47,8 +47,9 @@
             <TableColumn fx:id="colid" prefWidth="127.0" text="id" />
             <TableColumn fx:id="coladvanced" prefWidth="180.0" text="advanced" />
             <TableColumn fx:id="coldate" prefWidth="206.0" text="date" />
-            <TableColumn fx:id="colcourseid" prefWidth="200.0" text="course id " />
-            <TableColumn fx:id="colstudent" prefWidth="251.0" text="student id" />
+            <TableColumn fx:id="colcourseid" prefWidth="133.0" text="course id " />
+            <TableColumn fx:id="colstudent" prefWidth="150.0" text="student id" />
+            <TableColumn fx:id="paymentId" prefWidth="167.0" text="PaymentID" />
          </columns>
       </TableView>
       <Button layoutX="432.0" layoutY="659.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="126.0" text="save" />
