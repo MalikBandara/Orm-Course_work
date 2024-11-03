@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CoRegisterForm">
    <children>
       <Label layoutX="130.0" layoutY="148.0" text="Registration ID">
@@ -31,18 +30,18 @@
          </font>
       </Label>
       <DatePicker fx:id="datapicker" layoutX="125.0" layoutY="450.0" />
-      <Label layoutX="119.0" layoutY="523.0" text="Course ID">
+      <Label layoutX="119.0" layoutY="510.0" text="Course ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbcourseid" layoutX="125.0" layoutY="576.0" prefWidth="150.0" />
-      <Label layoutX="127.0" layoutY="633.0" prefHeight="26.0" prefWidth="143.0" text="Student ID">
+      <ComboBox fx:id="cmbcourseid" layoutX="125.0" layoutY="554.0" prefWidth="150.0" />
+      <Label layoutX="127.0" layoutY="612.0" prefHeight="26.0" prefWidth="143.0" text="Student ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbstudentid" layoutX="124.0" layoutY="694.0" prefWidth="150.0" />
+      <ComboBox fx:id="cmbstudentid" layoutX="124.0" layoutY="663.0" prefWidth="150.0" />
       <TableView fx:id="tblregistration" layoutX="426.0" layoutY="148.0" prefHeight="461.0" prefWidth="965.0">
          <columns>
             <TableColumn fx:id="colid" prefWidth="127.0" text="id" />
@@ -54,5 +53,11 @@
       </TableView>
       <Button layoutX="432.0" layoutY="659.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="126.0" text="save" />
       <Button fx:id="btnback" layoutX="1275.0" layoutY="679.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="126.0" text="back" />
+      <ComboBox fx:id="cmbPaymentID" layoutX="117.0" layoutY="734.0" prefWidth="150.0" />
+      <Label layoutX="120.0" layoutY="694.0" prefHeight="26.0" prefWidth="143.0" text="Payment ID">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
