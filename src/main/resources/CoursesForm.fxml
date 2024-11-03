@@ -52,5 +52,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="btnback" layoutX="1246.0" layoutY="695.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="44.0" prefWidth="126.0" text="clear" />
    </children>
 </AnchorPane>

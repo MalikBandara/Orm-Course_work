@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -14,9 +15,9 @@ import java.util.Date;
 @Setter
 public class RegistrationDTO {
 
-    private int registrationId;
+    private String registrationId;
     private double advanced;
-    private Date date;
+    private LocalDate date;
     private Courses courses;
     private Student student;
 }

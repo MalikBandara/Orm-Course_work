@@ -21,10 +21,10 @@
                   <Image url="@images/icons8-logout-64.png" />
                </image>
             </ImageView>
-            <Button fx:id="studenclickpane" layoutX="33.0" layoutY="243.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="38.0" prefWidth="163.0" text="Student" />
-            <Button layoutX="33.0" layoutY="309.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Courses" />
-            <Button layoutX="33.0" layoutY="372.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Registrations" />
-            <Button layoutX="33.0" layoutY="443.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="163.0" text="Users" />
+            <Button fx:id="stbtn" layoutX="33.0" layoutY="243.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="38.0" prefWidth="163.0" text="Student" />
+            <Button fx:id="coursebtn" layoutX="33.0" layoutY="309.0" mnemonicParsing="false" onAction="#coursesOnClick" prefHeight="38.0" prefWidth="163.0" text="Courses" />
+            <Button fx:id="registrationbtn" layoutX="33.0" layoutY="372.0" mnemonicParsing="false" onAction="#registrationOnClick" prefHeight="38.0" prefWidth="163.0" text="Registrations" />
+            <Button fx:id="userbtn" layoutX="33.0" layoutY="443.0" mnemonicParsing="false" onAction="#usersOnClick" prefHeight="38.0" prefWidth="163.0" text="Users" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="StudentCountPane" layoutX="308.0" layoutY="201.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />

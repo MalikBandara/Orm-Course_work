@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -18,11 +19,11 @@ import java.util.Date;
 @Entity
 public class Registration {
     @Id
-    private int registrationId;
+    private String registrationId;
 
     private double advanced;
 
-    private Date date;
+    private LocalDate date;
 
     @ManyToOne(cascade = CascadeType.ALL) // Cascade all operations
     private Courses courses;

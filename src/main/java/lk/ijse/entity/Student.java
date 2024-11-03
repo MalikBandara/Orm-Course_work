@@ -95,4 +95,12 @@ public class Student {
         this.registrations = registrations;
     }
 
+    @Override
+    public String toString() {
+        return  ""+ StudentId;
+    }
+
+
+
+
 }

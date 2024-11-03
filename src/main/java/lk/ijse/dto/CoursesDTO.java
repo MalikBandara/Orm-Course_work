@@ -51,4 +51,12 @@ public class CoursesDTO {
     public void setCoursePrice(double coursePrice) {
         this.coursePrice = coursePrice;
     }
+    @Override
+    public String toString() {
+        return "Courses{" +
+                "courseId='" + courseId + '\'' +
+                '}';
+    }
+
+
 }

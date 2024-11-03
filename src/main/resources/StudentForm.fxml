@@ -32,7 +32,7 @@
       <Button layoutX="327.0" layoutY="693.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="51.0" prefWidth="109.0" text="Delete" />
       <Button layoutX="473.0" layoutY="693.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="51.0" prefWidth="109.0" text="Search" />
       <Button layoutX="608.0" layoutY="693.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="51.0" prefWidth="109.0" text="Clear" />
-      <Button layoutX="1264.0" layoutY="687.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="51.0" prefWidth="109.0" text="Back" />
+      <Button fx:id="btnback" layoutX="1264.0" layoutY="687.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="51.0" prefWidth="109.0" text="Back" />
       <TableView fx:id="tblStudent" layoutX="548.0" layoutY="120.0" prefHeight="220.0" prefWidth="583.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="75.0" text="id" />

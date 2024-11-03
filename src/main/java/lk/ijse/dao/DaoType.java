@@ -1,5 +1,5 @@
 package lk.ijse.dao;
 
 public enum DaoType {
-    User,Student,Course
+    User,Student,Course,Registration
 }

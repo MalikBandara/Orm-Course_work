@@ -4,10 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.StudentBo;
@@ -16,6 +20,8 @@ import lk.ijse.dto.StudentDTO;
 
 import lk.ijse.dto.tm.StudentTm;
 import lk.ijse.entity.User;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +31,9 @@ public class StudetnFormController implements Initializable {
 
     @FXML
     private TextField studentId;
+
+    @FXML
+    private Button btnback;
 
     @FXML
     private TextField studentName;
@@ -122,8 +131,13 @@ public class StudetnFormController implements Initializable {
 
 
     @FXML
-    void btnBackOnAction(ActionEvent event) {
-        // Implement back action
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) btnback.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
     }
 
     @FXML

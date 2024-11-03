@@ -58,4 +58,10 @@ public class Courses {
         this.coursePrice = coursePrice;
     }
 
+    @Override
+    public String toString() {
+        return courseId;
+    }
+
+
 }

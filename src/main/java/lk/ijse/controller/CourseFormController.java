@@ -2,12 +2,13 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.CourseBo;
@@ -15,6 +16,7 @@ import lk.ijse.dto.CoursesDTO;
 import lk.ijse.dto.tm.CourseTm;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,6 +26,9 @@ public class CourseFormController implements Initializable {
 
     @FXML
     private TableColumn<CourseTm, Double> colPrice;
+
+    @FXML
+    private Button btnback;
 
     @FXML
     private TableColumn<CourseTm, String> colid;
@@ -205,5 +210,14 @@ public class CourseFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
           loadCourseTable();
           setCellValueFactory();
+    }
+
+    public void btnbackonaction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) btnback.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
     }
 }
