@@ -46,5 +46,6 @@
       <Button layoutX="390.0" layoutY="661.0" mnemonicParsing="false" onAction="#updateaction" prefHeight="59.0" prefWidth="123.0" text="update" />
       <Button layoutX="539.0" layoutY="661.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="59.0" prefWidth="123.0" text="search" />
       <Button layoutX="687.0" layoutY="661.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="59.0" prefWidth="123.0" text="clear" />
+      <Button fx:id="btnback" layoutX="1261.0" layoutY="678.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="59.0" prefWidth="123.0" text="back" />
    </children>
 </AnchorPane>

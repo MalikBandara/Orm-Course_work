@@ -2,15 +2,20 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.UserBo;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.dto.tm.UserTm;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.util.List;
@@ -20,6 +25,9 @@ public class UserRegisterController implements Initializable {
 
     @FXML
     private ComboBox<String> cmbrole;
+
+    @FXML
+    private Button btnback;
 
     @FXML
     private TableColumn<?, ?> colpass;
@@ -55,6 +63,7 @@ public class UserRegisterController implements Initializable {
 
         boolean isDeleted = userBo.deleteUser(username);
 
+        loadUsers();
         // Show alert based on the delete result
         Alert alert = new Alert(isDeleted ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
         alert.setTitle(isDeleted ? "Delete Successful" : "Delete Failed");
@@ -75,6 +84,7 @@ public class UserRegisterController implements Initializable {
 
         // Attempt to save the user
         boolean isSaved = userBo.saveUsers(coordinator);
+        loadUsers();
 
         // Show alert based on the save result
         Alert alert = new Alert(isSaved ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
@@ -85,18 +95,30 @@ public class UserRegisterController implements Initializable {
     }
 
 
+
+
     @FXML
     void searchaction(ActionEvent event) {
         String username = this.username.getText();
 
+        // Search for the user
         UserDTO userDTO = userBo.searchUsers(username);
 
-        this.username.setText(userDTO.getUsername());
-        this.password.setText(userDTO.getPassword());
-        this.cmbrole.setValue("Coordinator");
-
-
+        if (userDTO != null) {
+            // Populate fields if the user is found
+            this.username.setText(userDTO.getUsername());
+            this.password.setText(userDTO.getPassword());
+            this.cmbrole.setValue(userDTO.getRole());
+        } else {
+            // Show error alert if the user is not found
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("User Not Found");
+            alert.setHeaderText(null);
+            alert.setContentText("No user found with the given username.");
+            alert.showAndWait();
+        }
     }
+
 
 
 
@@ -110,6 +132,7 @@ public class UserRegisterController implements Initializable {
 
         // Attempt to update the user
         boolean isUpdated = userBo.updateUser(coordinator);
+        loadUsers();
 
         // Show alert based on the update result
         Alert alert = new Alert(isUpdated ? Alert.AlertType.INFORMATION : Alert.AlertType.ERROR);
@@ -139,5 +162,14 @@ public class UserRegisterController implements Initializable {
         colusername.setCellValueFactory(new PropertyValueFactory<>("username"));
         colrole.setCellValueFactory(new PropertyValueFactory<>("role"));
         colpass.setCellValueFactory(new PropertyValueFactory<>("password"));
+    }
+
+    public void btnbackonaction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) btnback.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
     }
 }

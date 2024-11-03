@@ -68,12 +68,18 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User find(String id) {
 
-        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
-        Transaction tx = session.beginTransaction();
-        User user = (User) session.get(User.class, id);
-        tx.commit();
-        session.close();
-        return user;
+        try {
+            Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+            Transaction tx = session.beginTransaction();
+            User user = (User) session.get(User.class, id);
+            tx.commit();
+            session.close();
+            return user;
+        }catch (Exception e){
+            return null;
+        }
+
+
     }
 
 

@@ -14,6 +14,8 @@ import java.io.IOException;
 public class AdminDashController {
 
     @FXML
+    private Button logout;
+    @FXML
     private AnchorPane CourseCountPane;
 
     @FXML
@@ -72,10 +74,24 @@ public class AdminDashController {
     }
 
     @FXML
-    void usersOnClick(ActionEvent event) {
+    void usersOnClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/UserRegisterForm.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) userbtn.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
 
     }
 
+    public void logoutOnClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/LoginPage.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) logout.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
+    }
 }
 
 

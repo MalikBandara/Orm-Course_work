@@ -16,15 +16,16 @@
                   <Image url="@images/dd-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="67.0" layoutY="676.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/icons8-logout-64.png" />
-               </image>
-            </ImageView>
             <Button fx:id="stbtn" layoutX="33.0" layoutY="243.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="38.0" prefWidth="163.0" text="Student" />
             <Button fx:id="coursebtn" layoutX="33.0" layoutY="309.0" mnemonicParsing="false" onAction="#coursesOnClick" prefHeight="38.0" prefWidth="163.0" text="Courses" />
             <Button fx:id="registrationbtn" layoutX="33.0" layoutY="372.0" mnemonicParsing="false" onAction="#registrationOnClick" prefHeight="38.0" prefWidth="163.0" text="Registrations" />
             <Button fx:id="userbtn" layoutX="33.0" layoutY="443.0" mnemonicParsing="false" onAction="#usersOnClick" prefHeight="38.0" prefWidth="163.0" text="Users" />
+            <Button fx:id="logout" layoutX="76.0" layoutY="664.0" mnemonicParsing="false" onAction="#logoutOnClick" prefHeight="47.0" prefWidth="53.0" />
+            <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="92.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-logout-64.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="StudentCountPane" layoutX="308.0" layoutY="201.0" prefHeight="164.0" prefWidth="338.0" stylesheets="@css/dash.css" />

@@ -47,7 +47,6 @@ public class StudetnFormController implements Initializable {
     @FXML
     private AnchorPane anchorpane;
 
-
     @FXML
     private TableColumn<StudentTm, String> corid;
 
