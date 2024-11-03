@@ -37,5 +37,6 @@
       </TableView>
       <Button layoutX="623.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="137.0" text="Add Payment" />
       <Button layoutX="895.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="137.0" text="Remove Payment" />
+      <Button fx:id="btnback" layoutX="1238.0" layoutY="706.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" text="Back" />
    </children>
 </AnchorPane>
