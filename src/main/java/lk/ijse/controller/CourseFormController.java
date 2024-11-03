@@ -104,13 +104,37 @@ public class CourseFormController implements Initializable {
         try {
             String courseId = this.courseId.getText();
             String courseName = this.courseName.getText();
-            double coursePrice = Double.parseDouble(this.coursePrice.getText());
             String duration = this.duaration.getText(); // Fixed typo from 'duaration' to 'duration'
 
+            // Validate course price
+            double coursePrice;
+            try {
+                coursePrice = Double.parseDouble(this.coursePrice.getText());
+            } catch (NumberFormatException e) {
+                showAlert("Error", "Invalid input for course price. Please enter a valid number.", Alert.AlertType.ERROR);
+                return; // Early exit if price is invalid
+            }
 
+            // Validate other fields
+            if (courseId == null || courseId.trim().isEmpty()) {
+                showAlert("Error", "Course ID cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
 
+            if (courseName == null || courseName.trim().isEmpty()) {
+                showAlert("Error", "Course Name cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            if (duration == null || duration.trim().isEmpty()) {
+                showAlert("Error", "Duration cannot be empty.", Alert.AlertType.WARNING);
+                return; // Early exit if validation fails
+            }
+
+            // Create a new CoursesDTO instance
             CoursesDTO coursesDTO = new CoursesDTO(courseId, courseName, duration, coursePrice);
 
+            // Save course
             boolean isSaved = courseBo.saveCourses(coursesDTO);
             loadCourseTable();
 
@@ -120,13 +144,11 @@ public class CourseFormController implements Initializable {
                 showAlert("Save", "Course save failed.", Alert.AlertType.ERROR);
             }
 
-        } catch (NumberFormatException e) {
-            showAlert("Error", "Invalid input for course price. Please enter a valid number.", Alert.AlertType.ERROR);
         } catch (Exception e) {
             showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
-
         }
     }
+
 
 
 
