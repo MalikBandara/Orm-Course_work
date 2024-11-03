@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
 import lk.ijse.bo.UserBo;
 import lk.ijse.dto.UserDTO;
+import lk.ijse.dto.tm.UserTm;
 
 import java.net.URL;
+
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -31,7 +34,7 @@ public class UserRegisterController implements Initializable {
     private TextField password;
 
     @FXML
-    private TableView<?> tbluser;
+    private TableView<UserTm> tbluser;
 
     @FXML
     private TextField username;
@@ -119,6 +122,22 @@ public class UserRegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cmbrole.getItems().addAll("Coordinator"); // Example roles
+        cmbrole.getItems().addAll("Coordinator");
+        loadUsers();
+        setCellValueFactory();
+    }
+
+    private void loadUsers(){
+        tbluser.getItems().clear();
+        List<UserDTO> userDTOS = userBo.loadTable();
+        for (UserDTO userDTO : userDTOS) {
+            UserTm userTm = new UserTm(userDTO.getUsername(), userDTO.getPassword(), userDTO.getRole());
+            tbluser.getItems().add(userTm);
+        }
+    }
+    private void setCellValueFactory() {
+        colusername.setCellValueFactory(new PropertyValueFactory<>("username"));
+        colrole.setCellValueFactory(new PropertyValueFactory<>("role"));
+        colpass.setCellValueFactory(new PropertyValueFactory<>("password"));
     }
 }

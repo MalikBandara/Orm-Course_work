@@ -59,5 +59,18 @@ public class UserBoImpl implements UserBo {
        return userDao.delete(username);
     }
 
+    @Override
+    public List<UserDTO> loadTable() {
+        List<User> users = userDao.loadTale();
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for (User user : users){
+            UserDTO userDTO = new UserDTO(user.getUsername(), user.getPassword(), user.getRole(), user.getStudents());
+            userDTOs.add(userDTO);
+
+        }
+        return userDTOs;
+
+    }
+
 
 }

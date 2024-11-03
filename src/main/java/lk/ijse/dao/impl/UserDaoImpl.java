@@ -118,7 +118,15 @@ public class UserDaoImpl implements UserDao {
         return list; // Return the list (it will be empty if no valid user was found)
     }
 
-
+    @Override
+    public List<User> loadTale() {
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction transaction = session.beginTransaction();
+        List <User> userList = session.createQuery("from User").list();
+        transaction.commit();
+        session.close();
+        return userList;
+    }
 
 
 }

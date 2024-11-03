@@ -19,4 +19,6 @@ public interface UserBo  extends SuperBo{
     UserDTO searchUsers(String username);
 
     boolean deleteUser(String username);
+
+    List<UserDTO> loadTable();
 }

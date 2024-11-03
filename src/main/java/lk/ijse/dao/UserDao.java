@@ -13,4 +13,7 @@ public interface UserDao extends CrudDao<User>{
 
 
     List<User> getUserDetails(User user);
+
+    List<User> loadTale();
+
 }
