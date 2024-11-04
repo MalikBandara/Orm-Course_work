@@ -5,12 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+<AnchorPane prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #007acc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
    <children>
-      <Label layoutX="1092.0" layoutY="38.0" text="PAYMENT REGISTRATION FORM ">
+      <Label fx:id="title" layoutX="841.0" layoutY="38.0" stylesheets="@css/register.css" text="PAYMENT REGISTRATION FORM ">
          <font>
             <Font name="SansSerif Bold" size="45.0" />
          </font>
@@ -35,8 +37,13 @@
             <TableColumn fx:id="havetopay" prefWidth="227.0" text="Have to Pay " />
         </columns>
       </TableView>
-      <Button layoutX="351.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="137.0" text="Add Payment" />
-      <Button layoutX="593.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="137.0" text="Remove Payment" />
-      <Button fx:id="btnback" layoutX="1707.0" layoutY="901.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" text="Back" />
+      <Button fx:id="savebtn" layoutX="360.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="55.0" prefWidth="190.0" stylesheets="@css/register.css" text="Add Payment" />
+      <Button fx:id="deletebtn" layoutX="593.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="55.0" prefWidth="230.0" stylesheets="@css/register.css" text="Remove Payment" />
+      <Button fx:id="btnback" layoutX="1707.0" layoutY="901.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="55.0" prefWidth="153.0" stylesheets="@css/register.css" text="Back" />
+      <ImageView fx:id="title" fitHeight="809.0" fitWidth="512.0" layoutX="1123.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/paymentimg.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

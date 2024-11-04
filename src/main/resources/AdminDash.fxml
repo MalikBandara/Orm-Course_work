@@ -67,55 +67,45 @@
                </textFill></Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="StudentCountPane" layoutX="520.0" layoutY="154.0" prefHeight="329.0" prefWidth="460.0" stylesheets="@css/dash.css">
+      <AnchorPane fx:id="StudentCountPane" layoutX="507.0" layoutY="224.0" prefHeight="280.0" prefWidth="460.0" stylesheets="@css/dash.css">
          <children>
-            <Label layoutX="48.0" layoutY="18.0" text="TOTAL STUDENT ENROLLED" textFill="WHITE">
-               <font>
-                  <Font name="Noto Serif CJK JP Bold" size="25.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="189.0" fitWidth="365.0" layoutX="70.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="189.0" fitWidth="365.0" layoutX="70.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/hef.png" />
                </image>
             </ImageView>
-            <Label layoutX="97.0" layoutY="270.0" text="STUDENT COUNT :" textFill="WHITE">
+            <Label layoutX="97.0" layoutY="219.0" text="STUDENT COUNT :" textFill="WHITE">
                <font>
                   <Font name="Noto Serif CJK JP Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="275.0" text="100" textFill="WHITE">
+            <Label layoutX="343.0" layoutY="224.0" text="100" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane fx:id="CourseCountPane" layoutX="1025.0" layoutY="156.0" prefHeight="329.0" prefWidth="460.0" stylesheets="@css/dash.css">
+      <AnchorPane fx:id="CourseCountPane" layoutX="1025.0" layoutY="226.0" prefHeight="277.0" prefWidth="460.0" stylesheets="@css/dash.css">
          <children>
-            <ImageView fitHeight="166.0" fitWidth="313.0" layoutX="71.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="166.0" fitWidth="313.0" layoutX="71.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/coursetotal.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="UserCountPane" layoutX="765.0" layoutY="520.0" prefHeight="329.0" prefWidth="460.0" stylesheets="@css/dash.css">
+      <AnchorPane fx:id="UserCountPane" layoutX="768.0" layoutY="546.0" prefHeight="276.0" prefWidth="460.0" stylesheets="@css/dash.css">
          <children>
-            <ImageView fitHeight="189.0" fitWidth="365.0" layoutX="139.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="189.0" fitWidth="365.0" layoutX="139.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/cordinator.png" />
                </image>
             </ImageView>
-            <Label layoutX="131.0" layoutY="25.0" text="COORDINATORS" textFill="WHITE">
+            <Label layoutX="54.0" layoutY="232.0" text="COORDINATOR COUNT :" textFill="WHITE">
                <font>
                   <Font name="Noto Serif CJK JP Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="277.0" text="COORDINATOR COUNT :" textFill="WHITE">
-               <font>
-                  <Font name="Noto Serif CJK JP Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="375.0" layoutY="281.0" text="5" textFill="WHITE">
+            <Label layoutX="375.0" layoutY="235.0" text="5" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
@@ -126,10 +116,26 @@
             <Image url="@images/man.png" />
          </image>
       </ImageView>
-      <Label fx:id="title" layoutX="775.0" layoutY="26.0" stylesheets="@css/dash.css" text="ADMIN DASHBOARD">
+      <Label fx:id="title2" layoutX="775.0" layoutY="26.0" text="ADMIN DASHBOARD">
          <font>
             <Font name="DejaVuMathTeXGyre-Regular" size="55.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <Label layoutX="638.0" layoutY="896.0" text="Centralized admin dashboard for efficient management,">
          <font>
@@ -141,17 +147,12 @@
             <Font name="Noto Serif CJK JP Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="1160.0" layoutY="174.0" text="TOTAL COURSES" textFill="WHITE">
-         <font>
-            <Font name="Noto Serif CJK JP Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="1128.0" layoutY="423.0" text="COURSE COUNT :" textFill="WHITE">
+      <Label layoutX="1128.0" layoutY="442.0" text="COURSE COUNT :" textFill="WHITE">
          <font>
             <Font name="Noto Serif CJK JP Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="1358.0" layoutY="426.0" text="100" textFill="WHITE">
+      <Label layoutX="1358.0" layoutY="446.0" text="100" textFill="WHITE">
          <font>
             <Font name="DejaVu Sans Bold" size="24.0" />
          </font>

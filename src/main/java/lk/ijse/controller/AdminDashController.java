@@ -18,7 +18,7 @@ public class AdminDashController {
     private Button logout;
 
     @FXML
-    private Label title;
+    private Label title2;
     @FXML
     private AnchorPane CourseCountPane;
 

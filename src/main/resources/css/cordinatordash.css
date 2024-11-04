@@ -1,0 +1,30 @@
+#anchorpane{
+    -fx-background-color: linear-gradient(to bottom, #0026ef, #b3d9ff); /* Example background color */
+    -fx-padding: 10px;               /* Padding around content */
+    -fx-border-color: #ffffff;       /* Border color */
+    -fx-border-width: 2px;           /* Border width */
+    -fx-border-radius: 5px;          /* Border radius */
+    -fx-background-radius: 5px;
+}
+
+#btnpay,#addbtn,#btnregister {
+    -fx-background-color: #0096ff; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#back {
+    -fx-background-color: #9917ef; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+
