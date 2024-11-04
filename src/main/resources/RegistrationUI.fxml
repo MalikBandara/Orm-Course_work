@@ -10,64 +10,83 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegistrationController">
+<AnchorPane prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegistrationController">
    <children>
-      <Label layoutX="120.0" layoutY="138.0" text="Registration ID">
+      <Label fx:id="title" layoutX="735.0" layoutY="25.0" stylesheets="@css/register.css" text="REGISTRATION FORM">
          <font>
-            <Font size="22.0" />
+            <Font name="SansSerif Bold" size="45.0" />
          </font>
       </Label>
-      <Label layoutX="689.0" layoutY="45.0" text="Registration form">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="registrationid" layoutX="117.0" layoutY="205.0" />
-      <Label layoutX="120.0" layoutY="262.0" text="Advanced payment">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="payment" layoutX="117.0" layoutY="315.0" />
-      <Label layoutX="120.0" layoutY="383.0" text="registration Date">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="datapicker" layoutX="115.0" layoutY="440.0" />
-      <Label layoutX="114.0" layoutY="486.0" text="Course ID">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbcourseid" layoutX="110.0" layoutY="531.0" prefWidth="150.0" />
-      <Label layoutX="110.0" layoutY="586.0" prefHeight="26.0" prefWidth="143.0" text="Student ID">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbstudentid" layoutX="107.0" layoutY="637.0" prefWidth="150.0" />
-      <TableView fx:id="tblregistration" layoutX="357.0" layoutY="138.0" prefHeight="461.0" prefWidth="965.0">
+      <TableView fx:id="tblregistration" layoutX="109.0" layoutY="627.0" prefHeight="326.0" prefWidth="1672.0" stylesheets="@css/register.css">
         <columns>
-          <TableColumn fx:id="colid" prefWidth="127.0" text="id" />
-          <TableColumn fx:id="coladvanced" prefWidth="163.0" text="advanced" />
-            <TableColumn fx:id="coldate" prefWidth="142.0" text="date" />
-            <TableColumn fx:id="colcourseid" prefWidth="195.0" text="course id " />
-            <TableColumn fx:id="colstudent" prefWidth="161.0" text="student id" />
-            <TableColumn fx:id="paymentId" prefWidth="176.0" text="PaymentId" />
+          <TableColumn fx:id="colid" prefWidth="228.33334350585938" text="Registration Id" />
+          <TableColumn fx:id="coladvanced" prefWidth="272.6666564941406" text="First Installement " />
+            <TableColumn fx:id="coldate" prefWidth="302.3333435058594" text="Registration Date " />
+            <TableColumn fx:id="colcourseid" prefWidth="368.33331298828125" text="Course Id" />
+            <TableColumn fx:id="colstudent" prefWidth="258.00006103515625" text="Student ID" />
+            <TableColumn fx:id="paymentId" prefWidth="242.99993896484375" text="PaymentId" />
         </columns>
       </TableView>
-      <Button layoutX="422.0" layoutY="649.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="126.0" text="save" />
-      <Button layoutX="577.0" layoutY="649.0" mnemonicParsing="false" onAction="#updateonaction" prefHeight="55.0" prefWidth="126.0" text="update" />
-      <Button layoutX="723.0" layoutY="649.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="55.0" prefWidth="126.0" text="delete" />
-      <Button layoutX="864.0" layoutY="649.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="55.0" prefWidth="126.0" text="search" />
-      <Button layoutX="1016.0" layoutY="649.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="55.0" prefWidth="126.0" text="clear" />
-      <Button fx:id="btnback" layoutX="1265.0" layoutY="669.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="126.0" text="back" />
-      <Label layoutX="110.0" layoutY="684.0" prefHeight="26.0" prefWidth="143.0" text="Payment ID">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbPaymentID" layoutX="107.0" layoutY="724.0" prefWidth="150.0" />
+      <Button fx:id="deletebtn" layoutX="1429.0" layoutY="538.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Delete" />
+      <Button fx:id="searchbtn" layoutX="1207.0" layoutY="539.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Search" />
+      <Button fx:id="clearbtn" layoutX="995.0" layoutY="537.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Clear" />
+      <Button fx:id="btnback" layoutX="71.0" layoutY="37.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Back" />
+      <AnchorPane fx:id="inputanchor" layoutX="101.0" layoutY="136.0" prefHeight="388.0" prefWidth="1761.0" stylesheets="@css/register.css">
+         <children>
+            <TextField fx:id="registrationid" layoutX="68.0" layoutY="88.0" prefHeight="41.0" prefWidth="310.0" />
+            <Label layoutX="67.0" layoutY="35.0" text="Registration ID" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="payment" layoutX="472.0" layoutY="86.0" prefHeight="41.0" prefWidth="310.0" />
+            <DatePicker fx:id="datapicker" layoutX="879.0" layoutY="84.0" prefHeight="41.0" prefWidth="310.0" />
+            <Label layoutX="880.0" layoutY="35.0" text="Registration Date" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="195.0" text="Course ID" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbcourseid" layoutX="65.0" layoutY="249.0" prefHeight="41.0" prefWidth="310.0" stylesheets="@css/register.css" />
+            <Label layoutX="471.0" layoutY="35.0" text="Advanced Payment" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbstudentid" layoutX="474.0" layoutY="248.0" prefHeight="41.0" prefWidth="310.0" stylesheets="@css/register.css" />
+            <Label layoutX="477.0" layoutY="190.0" prefHeight="26.0" prefWidth="143.0" text="Student ID" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbPaymentID" layoutX="884.0" layoutY="248.0" prefHeight="41.0" prefWidth="310.0" stylesheets="@css/register.css" />
+            <Label layoutX="884.0" layoutY="195.0" prefHeight="26.0" prefWidth="143.0" text="Payment ID" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="savebtn" layoutX="1325.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Save" />
+            <Button fx:id="updatebtn" layoutX="1327.0" layoutY="215.0" mnemonicParsing="false" onAction="#updateonaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Update" />
+            <Label layoutX="1319.0" layoutY="26.0" text="Register Hear" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="1353.0" layoutY="162.0" text="Update" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="1305.0" layoutY="327.0" text="Remove Course" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.bo.BoFactory;
 import lk.ijse.bo.BoTypes;
@@ -25,6 +26,9 @@ import java.util.ResourceBundle;
 
 public class RegistrationController implements Initializable {
 
+
+    @FXML
+    private AnchorPane inputanchor;
     @FXML
     private ComboBox<Payment> cmbPaymentID;
     @FXML
