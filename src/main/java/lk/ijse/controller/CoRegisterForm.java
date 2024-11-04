@@ -27,6 +27,9 @@ import java.util.ResourceBundle;
 public class CoRegisterForm implements Initializable {
 
 
+
+    @FXML
+    private Button savebtn;
     @FXML
     private ComboBox<Payment> cmbPaymentID;
     @FXML
