@@ -25,6 +25,8 @@ import java.util.ResourceBundle;
 public class CourseFormController implements Initializable {
 
     @FXML
+    private Label title;
+    @FXML
     private TableColumn<CourseTm, Double> colPrice;
 
     @FXML
