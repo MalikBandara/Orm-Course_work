@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -69,7 +71,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="savebtn" layoutX="1325.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Save" />
+            <Button fx:id="savebtn" layoutX="1325.0" layoutY="73.0" mnemonicParsing="false" onAction="#btnsaveaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Click" />
             <Button fx:id="updatebtn" layoutX="1327.0" layoutY="215.0" mnemonicParsing="false" onAction="#updateonaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="Update" />
             <Label layoutX="1319.0" layoutY="26.0" text="Register Hear" textFill="WHITE">
                <font>
@@ -86,6 +88,11 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1461.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Animation%20-%201730714394740.gif" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

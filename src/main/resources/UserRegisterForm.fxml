@@ -6,46 +6,53 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserRegisterController">
+<AnchorPane prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #0096ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserRegisterController">
    <children>
-      <Label layoutX="732.0" layoutY="49.0" text="User Form">
+      <Label fx:id="title" layoutX="991.0" layoutY="40.0" stylesheets="@css/register.css" text="USER REGISTRATION  FORM">
          <font>
-            <Font size="30.0" />
+            <Font name="SansSerif Bold" size="45.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="124.0" text="User Name ">
+      <Label layoutX="90.0" layoutY="138.0" text="User Name " textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="SansSerif Regular" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="username" layoutX="93.0" layoutY="208.0" />
-      <Label layoutX="90.0" layoutY="294.0" text="Password">
+      <TextField fx:id="username" layoutX="90.0" layoutY="191.0" prefHeight="41.0" prefWidth="310.0" />
+      <Label layoutX="454.0" layoutY="138.0" text="Password" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="password" layoutX="93.0" layoutY="372.0" />
-      <Label layoutX="90.0" layoutY="431.0" text="Role">
+      <TextField fx:id="password" layoutX="454.0" layoutY="191.0" prefHeight="41.0" prefWidth="310.0" />
+      <Label layoutX="822.0" layoutY="135.0" text="Role" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font name="SansSerif Regular" size="25.0" />
          </font>
       </Label>
-      <TableView fx:id="tbluser" layoutX="375.0" layoutY="132.0" prefHeight="395.0" prefWidth="837.0">
+      <TableView fx:id="tbluser" layoutX="95.0" layoutY="273.0" prefHeight="395.0" prefWidth="1039.0" stylesheets="@css/register.css">
         <columns>
-          <TableColumn fx:id="colusername" prefWidth="297.0" text="User Name " />
-          <TableColumn fx:id="colpass" prefWidth="312.0" text="Password" />
-            <TableColumn fx:id="colrole" prefWidth="227.0" text="role" />
+          <TableColumn fx:id="colusername" prefWidth="336.0" text="User Name " />
+          <TableColumn fx:id="colpass" prefWidth="360.0" text="Password" />
+            <TableColumn fx:id="colrole" prefWidth="342.0" text="role" />
         </columns>
       </TableView>
-      <ComboBox fx:id="cmbrole" layoutX="93.0" layoutY="507.0" prefWidth="150.0" />
-      <Button layoutX="83.0" layoutY="661.0" mnemonicParsing="false" onAction="#saveaction" prefHeight="59.0" prefWidth="123.0" text="save" />
-      <Button layoutX="243.0" layoutY="661.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="59.0" prefWidth="123.0" text="delete" />
-      <Button layoutX="390.0" layoutY="661.0" mnemonicParsing="false" onAction="#updateaction" prefHeight="59.0" prefWidth="123.0" text="update" />
-      <Button layoutX="539.0" layoutY="661.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="59.0" prefWidth="123.0" text="search" />
-      <Button layoutX="687.0" layoutY="661.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="59.0" prefWidth="123.0" text="clear" />
-      <Button fx:id="btnback" layoutX="1261.0" layoutY="678.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="59.0" prefWidth="123.0" text="back" />
+      <ComboBox fx:id="cmbrole" layoutX="822.0" layoutY="191.0" prefHeight="41.0" prefWidth="310.0" stylesheets="@css/register.css" />
+      <Button fx:id="savebtn" layoutX="102.0" layoutY="748.0" mnemonicParsing="false" onAction="#saveaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="save" />
+      <Button fx:id="deletebtn" layoutX="450.0" layoutY="748.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="delete" />
+      <Button fx:id="updatebtn" layoutX="277.0" layoutY="748.0" mnemonicParsing="false" onAction="#updateaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="update" />
+      <Button fx:id="searchbtn" layoutX="803.0" layoutY="748.0" mnemonicParsing="false" onAction="#searchaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="search" />
+      <Button fx:id="clearbtn" layoutX="626.0" layoutY="749.0" mnemonicParsing="false" onAction="#clearaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/register.css" text="clear" />
+      <Button fx:id="btnback" layoutX="1725.0" layoutY="909.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="56.0" prefWidth="153.0" stylesheets="@css/register.css" text="back" />
+      <ImageView fitHeight="905.0" fitWidth="750.0" layoutX="1115.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/istockphoto-491579662-612x612-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

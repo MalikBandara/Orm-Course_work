@@ -8,26 +8,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
+<AnchorPane prefHeight="1000.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormController">
    <children>
-      <Label layoutX="705.0" layoutY="48.0" text="Payment Form ">
+      <Label layoutX="1092.0" layoutY="38.0" text="PAYMENT REGISTRATION FORM ">
          <font>
-            <Font size="26.0" />
+            <Font name="SansSerif Bold" size="45.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="295.0" text="payment Id">
+      <Label layoutX="81.0" layoutY="106.0" text="Payment ID">
          <font>
-            <Font size="26.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="paymentId" layoutX="73.0" layoutY="384.0" />
-      <Label layoutX="73.0" layoutY="459.0" text="Amount ">
+      <TextField fx:id="paymentId" layoutX="78.0" layoutY="168.0" prefHeight="41.0" prefWidth="310.0" />
+      <Label layoutX="462.0" layoutY="106.0" text="Amount ">
          <font>
-            <Font size="26.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="amount" layoutX="73.0" layoutY="534.0" />
-      <TableView fx:id="tblpayment" layoutX="344.0" layoutY="195.0" prefHeight="466.0" prefWidth="991.0">
+      <TextField fx:id="amount" layoutX="462.0" layoutY="168.0" prefHeight="41.0" prefWidth="310.0" />
+      <TableView fx:id="tblpayment" layoutX="74.0" layoutY="257.0" prefHeight="466.0" prefWidth="991.0">
         <columns>
           <TableColumn fx:id="payid" prefWidth="217.0" text="Payment ID " />
           <TableColumn fx:id="fullamount" prefWidth="243.0" text="Full Amount " />
@@ -35,8 +35,8 @@
             <TableColumn fx:id="havetopay" prefWidth="227.0" text="Have to Pay " />
         </columns>
       </TableView>
-      <Button layoutX="623.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="137.0" text="Add Payment" />
-      <Button layoutX="895.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="137.0" text="Remove Payment" />
-      <Button fx:id="btnback" layoutX="1238.0" layoutY="706.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" text="Back" />
+      <Button layoutX="351.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="137.0" text="Add Payment" />
+      <Button layoutX="593.0" layoutY="786.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="137.0" text="Remove Payment" />
+      <Button fx:id="btnback" layoutX="1707.0" layoutY="901.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" text="Back" />
    </children>
 </AnchorPane>

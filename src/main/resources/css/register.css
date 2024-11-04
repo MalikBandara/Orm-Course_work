@@ -132,7 +132,7 @@
     -fx-font-weight: bold; /* Makes the text bold for emphasis */
 }
 
-#cmbcourseid,#cmbstudentid,#cmbPaymentID {
+#cmbcourseid,#cmbstudentid,#cmbPaymentID,#cmbrole {
     -fx-background-color: #ffffff;
     -fx-text-fill: white;
     -fx-border-color: #000000; /* or choose any border color */
@@ -148,4 +148,34 @@
     -fx-background-radius: 10px; /* Match border radius to background for rounded corners */
     -fx-padding: 0; /* Padding inside the anchor pane */
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.2), 10, 0.0, 4, 4); /* Subtle shadow for depth */
+}
+
+
+
+#tbluser {
+    -fx-background-color: white; /* White background for the table */
+    -fx-border-color: #000000; /* Border color */
+    -fx-border-width: 1px; /* Border thickness */
+    -fx-border-radius: 5px; /* Rounded corners for the table */
+    -fx-padding: 10px; /* Padding around the table */
+    -fx-table-cell-border-color: #000000; /* Color of cell borders */
+}
+
+#tbluser .table-row-cell {
+    -fx-background-color: transparent; /* Transparent background for rows */
+}
+
+#tbluser .table-row-cell:hover {
+    -fx-background-color: #e6f7ff; /* Light blue background on row hover */
+}
+
+#tbluser .table-header-cell {
+    -fx-background-color: #0096ff; /* Background color for header */
+    -fx-text-fill: white; /* Text color for header */
+    -fx-font-weight: bold; /* Bold text for header */
+    -fx-padding: 10px; /* Padding for header cells */
+}
+
+#tbluser .table-header-cell:hover {
+    -fx-background-color: #007acc; /* Darker blue on hover */
 }
