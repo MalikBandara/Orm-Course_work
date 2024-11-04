@@ -34,14 +34,7 @@
     -fx-background-radius: 5px;
 }
 
-#MainPain{
-    -fx-background-color: linear-gradient(to bottom, #008ad7, #d0e8f2); /* Light blue gradient */
-    -fx-padding: 10px;
-    -fx-border-color: #ffffff;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-}
+
 
 #studenclickpane{
     -fx-background-color: white;
@@ -52,3 +45,75 @@
 #courseclickpane{
     -fx-background-color: white;
 }
+
+#stbtn:hover{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#coursebtn:hover{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#registrationbtn:hover{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#userbtn:hover{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#paymentbtn:hover{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#stbtn,#coursebtn,#registrationbtn,#userbtn,#paymentbtn {
+    -fx-background-color: linear-gradient(to bottom, #0ab9ea, #0ab9ea); /* Gradient from blue to dark blue */
+    -fx-border-color: white; /* White border */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded border */
+    -fx-padding: 12px 24px; /* Padding */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-transition-duration: 0.4s; /* Transition duration */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: white; /* White text */
+
+}
+
+#logout{
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); /* Gradient from dark blue to darker blue on hover */
+    -fx-text-fill: black; /* White text on hover */
+    -fx-border-color: white; /* White border on hover */
+    -fx-border-width: 2px; /* Border width on hover */
+    -fx-border-radius: 5px; /* Rounded border on hover */
+    -fx-background-radius: 5px; /* Rounded corners on hover */
+}
+#title {
+    -fx-background-color: transparent; /* Ensure the background is transparent */
+    -fx-font-family: "Georgia", serif; /* Choose a beautiful, classic font */
+    -fx-font-size: 55px; /* Adjust font size as needed */
+    -fx-text-fill: linear-gradient(from 10% 10% to 100% 100%, blue, lightblue, black); /* Gradient from blue to light blue to black */
+    -fx-font-weight: bold; /* Makes the text bold for emphasis */
+}
+
+
+

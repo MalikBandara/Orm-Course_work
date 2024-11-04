@@ -17,11 +17,11 @@
             <Image url="@images/chef.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="ChildPane" layoutX="59.0" layoutY="41.0" prefHeight="588.0" prefWidth="486.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="ChildPane" layoutX="59.0" layoutY="41.0" prefHeight="588.0" prefWidth="486.0" style="-fx-background-radius: 10px;" stylesheets="@css/loginCss.css">
          <children>
-            <Label layoutX="54.0" layoutY="44.0" text="THE CULINARY ACEDEMY SYSTEM">
+            <Label layoutX="63.0" layoutY="20.0" text="THE CULINARY ACEDEMY SYSTEM">
                <font>
-                  <Font size="22.0" />
+                  <Font name="SansSerif Bold" size="20.0" />
                </font>
             </Label>
             <ImageView fitHeight="62.0" fitWidth="54.0" layoutX="213.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +34,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cmbAdmin" layoutX="43.0" layoutY="258.0" prefHeight="36.0" prefWidth="401.0" promptText="--Select User Role-- " />
+            <ComboBox fx:id="cmbAdmin" layoutX="43.0" layoutY="258.0" prefHeight="36.0" prefWidth="401.0" promptText="--Select User Role-- " stylesheets="@css/loginCss.css" />
             <TextField fx:id="UserName" layoutX="43.0" layoutY="340.0" prefHeight="36.0" prefWidth="401.0" promptText="Enter Username" />
             <PasswordField fx:id="passward" layoutX="43.0" layoutY="412.0" prefHeight="36.0" prefWidth="401.0" promptText="Enter Passward" />
             <Button fx:id="loginbtn" layoutX="43.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="35.0" prefWidth="401.0" text="Login" />

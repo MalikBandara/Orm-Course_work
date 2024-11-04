@@ -30,10 +30,29 @@ import java.util.stream.Collectors;
 public class StudetnFormController implements Initializable {
 
     @FXML
+    private AnchorPane textpane;
+
+    @FXML
     private TextField studentId;
 
     @FXML
     private Button btnback;
+
+    @FXML
+    private Button deletebtn;
+
+    @FXML
+    private Button savebtn;
+
+    @FXML
+    private Button searchbtn;
+
+    @FXML
+    private Button clearbtn;
+
+
+    @FXML
+    private Button updatebtn;
 
     @FXML
     private TextField studentName;

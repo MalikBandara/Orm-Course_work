@@ -5,53 +5,60 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CourseFormController">
+<AnchorPane prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #0096ff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CourseFormController">
    <children>
-      <Label layoutX="75.0" layoutY="131.0" text="Course id ">
+      <Label layoutX="49.0" layoutY="218.0" text="Course Id" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="SansSerif Regular" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="courseId" layoutX="75.0" layoutY="190.0" />
-      <Label layoutX="75.0" layoutY="249.0" text="Course Name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="courseName" layoutX="71.0" layoutY="298.0" />
-      <Label layoutX="75.0" layoutY="354.0" text="Course Price">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="coursePrice" layoutX="71.0" layoutY="403.0" />
-      <Label layoutX="75.0" layoutY="461.0" text="Duration">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="duaration" layoutX="71.0" layoutY="517.0" />
-      <TableView fx:id="tblcourse" layoutX="376.0" layoutY="122.0" prefHeight="456.0" prefWidth="952.0">
+      <TextField fx:id="courseId" layoutX="49.0" layoutY="288.0" prefHeight="41.0" prefWidth="310.0" />
+      <TextField fx:id="courseName" layoutX="416.0" layoutY="288.0" prefHeight="41.0" prefWidth="310.0" />
+      <TextField fx:id="coursePrice" layoutX="1143.0" layoutY="288.0" prefHeight="41.0" prefWidth="310.0" />
+      <TextField fx:id="duaration" layoutX="767.0" layoutY="288.0" prefHeight="41.0" prefWidth="310.0" />
+      <TableView fx:id="tblcourse" layoutX="49.0" layoutY="515.0" prefHeight="456.0" prefWidth="1038.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="269.0" text="id" />
           <TableColumn fx:id="colname" prefWidth="252.0" text="name" />
-            <TableColumn fx:id="colPrice" prefWidth="233.0" text="price" />
-            <TableColumn fx:id="durationcol" prefWidth="197.0" text="duration" />
+            <TableColumn fx:id="colPrice" prefWidth="272.0" text="price" />
+            <TableColumn fx:id="durationcol" prefWidth="244.0" text="duration" />
         </columns>
       </TableView>
-      <Button layoutX="71.0" layoutY="695.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="44.0" prefWidth="126.0" text="Save" />
-      <Button layoutX="224.0" layoutY="695.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="44.0" prefWidth="126.0" text="Update" />
-      <Button layoutX="386.0" layoutY="695.0" mnemonicParsing="false" onAction="#deleteonaction" prefHeight="44.0" prefWidth="126.0" text="Delete" />
-      <Button layoutX="545.0" layoutY="695.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="44.0" prefWidth="126.0" text="Search" />
-      <Button layoutX="700.0" layoutY="695.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="44.0" prefWidth="126.0" text="clear" />
-      <Label layoutX="763.0" layoutY="48.0" text="Courses">
+      <Button fx:id="savebtn" layoutX="51.0" layoutY="420.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/course.css" text="Save" />
+      <Button fx:id="updatebtn" layoutX="245.0" layoutY="420.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/course.css" text="Update" />
+      <Button fx:id="deletebtn" layoutX="439.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteonaction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/course.css" text="Delete" />
+      <Button fx:id="searchbtn" layoutX="648.0" layoutY="420.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/course.css" text="Search" />
+      <Button fx:id="clearbtn" layoutX="844.0" layoutY="420.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/course.css" text="clear" />
+      <Label layoutX="685.0" layoutY="48.0" text="COURSES MANAGEMENT">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Label>
-      <Button fx:id="btnback" layoutX="1246.0" layoutY="695.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="44.0" prefWidth="126.0" text="clear" />
+      <Button fx:id="btnback" layoutX="1705.0" layoutY="49.0" mnemonicParsing="false" onAction="#btnbackonaction" prefHeight="55.0" prefWidth="156.0" text="Back" />
+      <Label layoutX="416.0" layoutY="218.0" text="Course Name" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1147.0" layoutY="218.0" text="Course Price" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="765.0" layoutY="218.0" text="Duration" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="625.0" fitWidth="829.0" layoutX="1010.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/courseimg.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -25,7 +25,8 @@ public class StudentBoImpl implements StudentBo {
 
     @Override
     public List<User> getUserIds() {
-       return studentDao.getid();
+
+        return studentDao.getid();
     }
 
     @Override
@@ -46,6 +47,7 @@ public class StudentBoImpl implements StudentBo {
 
     @Override
     public boolean deleteStudent(int studentIdText) {
+
         return studentDao.delete(studentIdText);
     }
 

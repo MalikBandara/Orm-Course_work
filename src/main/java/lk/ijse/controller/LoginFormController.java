@@ -86,7 +86,7 @@ public class LoginFormController implements Initializable {
                         userDTO1.getPassword();
                         try {
                             Parent root = FXMLLoader.load(getClass().getResource("/AdminDash.fxml"));
-                            Scene scene1 = new Scene(root);
+                            Scene scene1 = new Scene(root,1900,1000);
                             Stage stage1 = (Stage) loginbtn.getScene().getWindow();
                             stage1.setScene(scene1);
                             stage1.setTitle("Dashboard Form");

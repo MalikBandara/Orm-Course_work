@@ -1,0 +1,126 @@
+#textpane{
+    -fx-background-color: #0096ff;
+    /*-fx-background-color: linear-gradient(to bottom, #0026ef, #b3d9ff); !* Example background color *!*/
+    -fx-padding: 10px;               /* Padding around content */
+    -fx-border-radius: 5px;          /* Border radius */
+    -fx-background-radius: 5px;
+}
+#anchorpane{
+    -fx-background-color: linear-gradient(to bottom, #0026ef, #b3d9ff); /* Example background color */
+}
+#cmbCoId{
+    -fx-background-color: white;
+}
+
+#savebtn {
+    -fx-background-color: green; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#savebtn:hover {
+    -fx-background-color: #28a745; /* Lighter green on hover */
+}
+
+#updatebtn {
+    -fx-background-color: blue; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#updatebtn:hover {
+    -fx-background-color: rgba(0, 0, 255, 0.71); /* Lighter green on hover */
+}
+
+#deletebtn {
+    -fx-background-color: #f80000; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#deletebtn:hover {
+    -fx-background-color: rgba(255, 0, 0, 0.71); /* Lighter green on hover */
+}
+#searchbtn {
+    -fx-background-color: #ffd100; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#searchbtn:hover {
+    -fx-background-color: rgba(255, 165, 0, 0.71); /* Lighter green on hover */
+}
+#clearbtn {
+    -fx-background-color: #7a7a7a; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#clearbtn:hover {
+    -fx-background-color: rgba(204, 204, 204, 0.71); /* Lighter green on hover */
+}
+
+#btnback {
+    -fx-background-color: #5b15ec; /* Green background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Bold text */
+    -fx-padding: 10px 20px; /* Adds padding for a larger button */
+    -fx-cursor: hand; /* Changes cursor to pointer on hover */
+    -fx-background-radius: 8px;
+}
+
+#btnback:hover {
+    -fx-background-color: rgba(151, 86, 252, 0.71); /* Lighter green on hover */
+}
+
+#tblStudent {
+    -fx-background-color: white; /* White background for the table */
+    -fx-border-color: #0096ff; /* Border color */
+    -fx-border-width: 1px; /* Border thickness */
+    -fx-border-radius: 5px; /* Rounded corners for the table */
+    -fx-padding: 10px; /* Padding around the table */
+    -fx-table-cell-border-color: #0096ff; /* Color of cell borders */
+}
+
+#tblStudent .table-row-cell {
+    -fx-background-color: transparent; /* Transparent background for rows */
+}
+
+#tblStudent .table-row-cell:hover {
+    -fx-background-color: #e6f7ff; /* Light blue background on row hover */
+}
+
+#tblStudent .table-header-cell {
+    -fx-background-color: #0096ff; /* Background color for header */
+    -fx-text-fill: white; /* Text color for header */
+    -fx-font-weight: bold; /* Bold text for header */
+    -fx-padding: 10px; /* Padding for header cells */
+}
+
+#tblStudent .table-header-cell:hover {
+    -fx-background-color: #007acc; /* Darker blue on hover */
+}
+
+
+

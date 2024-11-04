@@ -6,42 +6,99 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorpane" prefHeight="780.0" prefWidth="1434.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudetnFormController">
+<AnchorPane fx:id="anchorpane" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudetnFormController">
    <children>
-      <AnchorPane layoutX="43.0" layoutY="120.0" prefHeight="485.0" prefWidth="409.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="textpane" layoutX="23.0" layoutY="174.0" prefHeight="717.0" prefWidth="500.0" stylesheets="@css/student.css">
          <children>
-            <Label layoutX="23.0" layoutY="26.0" text="Student Id" />
-            <TextField fx:id="studentId" layoutX="23.0" layoutY="65.0" />
-            <Label layoutX="23.0" layoutY="108.0" text="Name" />
-            <TextField fx:id="studentName" layoutX="23.0" layoutY="140.0" />
-            <Label layoutX="29.0" layoutY="190.0" text="Address" />
-            <TextField fx:id="address" layoutX="23.0" layoutY="219.0" />
-            <Label layoutX="29.0" layoutY="266.0" text="contact" />
-            <TextField fx:id="contact" layoutX="23.0" layoutY="291.0" />
-            <Label layoutX="23.0" layoutY="330.0" text="Email" />
-            <TextField fx:id="Email" layoutX="23.0" layoutY="364.0" />
-            <Label layoutX="23.0" layoutY="398.0" text="Cordinator id" />
-            <ComboBox fx:id="cmbCoId" layoutX="23.0" layoutY="428.0" prefWidth="150.0" />
+            <Label layoutX="66.0" layoutY="29.0" text="Student Id" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font></Label>
+            <TextField fx:id="studentId" layoutX="65.0" layoutY="80.0" prefHeight="41.0" prefWidth="310.0" />
+            <Label layoutX="66.0" layoutY="151.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font></Label>
+            <TextField fx:id="studentName" layoutX="67.0" layoutY="194.0" prefHeight="41.0" prefWidth="310.0" />
+            <TextField fx:id="address" layoutX="70.0" layoutY="306.0" prefHeight="41.0" prefWidth="310.0" />
+            <TextField fx:id="contact" layoutX="71.0" layoutY="413.0" prefHeight="41.0" prefWidth="310.0" />
+            <TextField fx:id="Email" layoutX="69.0" layoutY="520.0" prefHeight="41.0" prefWidth="310.0" />
+            <ComboBox fx:id="cmbCoId" layoutX="72.0" layoutY="629.0" prefHeight="41.0" prefWidth="310.0" />
+            <Label layoutX="68.0" layoutY="259.0" text="Address" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="372.0" text="Contact" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="473.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="583.0" text="Cordinator ID" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="647.0" layoutY="44.0" text="Student Management" />
-      <Button layoutX="43.0" layoutY="693.0" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="51.0" prefWidth="109.0" text="Save" />
-      <Button layoutX="184.0" layoutY="693.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="51.0" prefWidth="109.0" text="Update" />
-      <Button layoutX="327.0" layoutY="693.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="51.0" prefWidth="109.0" text="Delete" />
-      <Button layoutX="473.0" layoutY="693.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="51.0" prefWidth="109.0" text="Search" />
-      <Button layoutX="608.0" layoutY="693.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="51.0" prefWidth="109.0" text="Clear" />
-      <Button fx:id="btnback" layoutX="1264.0" layoutY="687.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="51.0" prefWidth="109.0" text="Back" />
-      <TableView fx:id="tblStudent" layoutX="548.0" layoutY="120.0" prefHeight="220.0" prefWidth="583.0">
+      <Label layoutX="668.0" layoutY="23.0" text="STUDENT MANAGEMENT">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.6380952380952382">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.18333333730697632" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.5975609756097561">
+                     <color>
+                        <Color green="0.18333333730697632" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <Button fx:id="savebtn" layoutX="556.0" layoutY="730.0" mnemonicParsing="false" onAction="#SaveOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Save" />
+      <Button fx:id="updatebtn" layoutX="557.0" layoutY="831.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Update" />
+      <Button fx:id="deletebtn" layoutX="775.0" layoutY="731.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Delete" />
+      <Button fx:id="searchbtn" layoutX="776.0" layoutY="833.0" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Search" />
+      <Button fx:id="clearbtn" layoutX="982.0" layoutY="832.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Clear" />
+      <Button fx:id="btnback" layoutX="36.0" layoutY="36.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="55.0" prefWidth="156.0" stylesheets="@css/student.css" text="Back" />
+      <TableView fx:id="tblStudent" layoutX="557.0" layoutY="176.0" prefHeight="434.0" prefWidth="1242.0" stylesheets="@css/student.css">
         <columns>
-          <TableColumn fx:id="colid" prefWidth="75.0" text="id" />
-          <TableColumn fx:id="colName" prefWidth="75.0" text="name" />
-            <TableColumn fx:id="coladdress" prefWidth="75.0" text="address" />
-            <TableColumn fx:id="colcontact" prefWidth="75.0" text="contact" />
-            <TableColumn fx:id="colemail" prefWidth="75.0" text="email" />
-            <TableColumn fx:id="corid" prefWidth="75.0" text="corid" />
+          <TableColumn fx:id="colid" prefWidth="141.0" text="id" />
+          <TableColumn fx:id="colName" prefWidth="198.0" text="name" />
+            <TableColumn fx:id="coladdress" prefWidth="276.0" text="Address" />
+            <TableColumn fx:id="colcontact" prefWidth="255.0" text="Contact" />
+            <TableColumn fx:id="colemail" prefWidth="211.0" text="Email" />
+            <TableColumn fx:id="corid" prefWidth="160.0" text="Cordinator ID" />
         </columns>
       </TableView>
+      <ImageView fitHeight="486.0" fitWidth="771.0" layoutX="1161.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/istockphoto-823553696-612x612-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

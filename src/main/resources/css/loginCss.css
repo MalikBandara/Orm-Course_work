@@ -2,3 +2,23 @@
     -fx-background-color: black;
 }
 
+
+#cmbAdmin {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: white;
+    -fx-border-color: #000000; /* or choose any border color */
+    -fx-border-width: .4px; /* adjust the width as needed */
+    -fx-border-radius: 4px; /* optional: rounds the corners */
+}
+
+#loginbtn {
+    -fx-background-color: #0096ff;
+    -fx-text-fill: white;
+    -fx-border-color: #000000; /* or choose any border color */
+    -fx-border-width: .4px; /* adjust the width as needed */
+    -fx-border-radius: 3px; /* optional: rounds the corners */
+}
+
+#ChildPane{
+    -fx-background-color: #ffffff;
+}
