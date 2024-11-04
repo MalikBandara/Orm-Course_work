@@ -5,32 +5,33 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentFormCordinator">
    <children>
-      <AnchorPane layoutX="1.0" prefHeight="780.0" prefWidth="1434.0">
+      <AnchorPane layoutX="1.0" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #0096ff;">
          <children>
-            <Label layoutX="705.0" layoutY="48.0" text="Payment Form ">
+            <Label fx:id="title" layoutX="803.0" layoutY="46.0" stylesheets="@css/register.css" text="PAYMENT FORM">
+               <font>
+                  <Font name="SansSerif Bold" size="45.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="164.0" text="Payment ID">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="paymentId" layoutX="73.0" layoutY="226.0" prefHeight="41.0" prefWidth="310.0" />
+            <Label layoutX="437.0" layoutY="164.0" text="Amount ">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="295.0" text="payment Id">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <TextField fx:id="paymentId" layoutX="73.0" layoutY="384.0" />
-            <Label layoutX="73.0" layoutY="459.0" text="Amount ">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <TextField fx:id="amount" layoutX="73.0" layoutY="534.0" />
-            <TableView fx:id="tblpayment" layoutX="344.0" layoutY="195.0" prefHeight="466.0" prefWidth="991.0">
+            <TextField fx:id="amount" layoutX="437.0" layoutY="226.0" prefHeight="41.0" prefWidth="310.0" />
+            <TableView fx:id="tblpayment" layoutX="62.0" layoutY="398.0" prefHeight="466.0" prefWidth="991.0" stylesheets="@css/cordinatordash.css">
                <columns>
                   <TableColumn fx:id="payid" prefWidth="217.0" text="Payment ID " />
                   <TableColumn fx:id="fullamount" prefWidth="243.0" text="Full Amount " />
@@ -38,9 +39,14 @@
                   <TableColumn fx:id="havetopay" prefWidth="227.0" text="Have to Pay " />
                </columns>
             </TableView>
-            <Button layoutX="623.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="137.0" text="Add Payment" />
-            <Button layoutX="895.0" layoutY="706.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="137.0" text="Remove Payment" />
-            <Button fx:id="btnback" layoutX="1238.0" layoutY="706.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" text="Back" />
+            <Button fx:id="savebtn" layoutX="874.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnsaveonpayment" prefHeight="50.0" prefWidth="201.0" stylesheets="@css/course.css" text="Add Payment" />
+            <Button fx:id="deletebtn" layoutX="1124.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnremovepayment" prefHeight="50.0" prefWidth="224.0" stylesheets="@css/course.css" text="Remove Payment" />
+            <Button fx:id="btnback" layoutX="1655.0" layoutY="54.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="50.0" prefWidth="137.0" stylesheets="@css/register.css" text="Back" />
+            <ImageView fitHeight="730.0" fitWidth="486.0" layoutX="1244.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/paymentimg.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

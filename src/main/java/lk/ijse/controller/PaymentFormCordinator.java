@@ -23,6 +23,15 @@ import java.util.ResourceBundle;
 
 public class PaymentFormCordinator implements Initializable {
 
+
+    @FXML
+    private Button deletebtn;
+
+    @FXML
+    private Button savebtn;
+
+    @FXML
+    private Label title;
     @FXML
     private Button btnback;
     @FXML

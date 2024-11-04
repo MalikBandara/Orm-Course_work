@@ -18,7 +18,7 @@
 }
 
 #back {
-    -fx-background-color: #9917ef; /* Green background */
+    -fx-background-color: #5b15ec; /* Green background */
     -fx-text-fill: white; /* White text color */
     -fx-font-size: 18px;
     -fx-font-weight: bold; /* Bold text */
@@ -28,3 +28,31 @@
 }
 
 
+
+#tblpayment {
+    -fx-background-color: white; /* White background for the table */
+    -fx-border-color: #000000; /* Border color */
+    -fx-border-width: 1px; /* Border thickness */
+    -fx-border-radius: 5px; /* Rounded corners for the table */
+    -fx-padding: 10px; /* Padding around the table */
+    -fx-table-cell-border-color: #000000; /* Color of cell borders */
+}
+
+#tblpayment .table-row-cell {
+    -fx-background-color: transparent; /* Transparent background for rows */
+}
+
+#tblpayment .table-row-cell:hover {
+    -fx-background-color: #e6f7ff; /* Light blue background on row hover */
+}
+
+#tblpayment .table-header-cell {
+    -fx-background-color: #0096ff; /* Background color for header */
+    -fx-text-fill: white; /* Text color for header */
+    -fx-font-weight: bold; /* Bold text for header */
+    -fx-padding: 10px; /* Padding for header cells */
+}
+
+#tblpayment .table-header-cell:hover {
+    -fx-background-color: #007acc; /* Darker blue on hover */
+}
