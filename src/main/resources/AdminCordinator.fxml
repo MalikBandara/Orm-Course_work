@@ -41,7 +41,7 @@
             <Font size="20.0" />
          </font></Button>
       <Button fx:id="back" layoutX="1653.0" layoutY="56.0" mnemonicParsing="false" onAction="#backonaction" prefHeight="52.0" prefWidth="169.0" stylesheets="@css/cordinatordash.css" text="Back" />
-      <Button fx:id="btnpay" layoutX="214.0" layoutY="865.0" mnemonicParsing="false" onAction="#paymentaction" prefHeight="65.0" prefWidth="216.0" stylesheets="@css/cordinatordash.css" text="Add Payment Id">
+      <Button fx:id="btnpay" layoutX="214.0" layoutY="865.0" mnemonicParsing="false" onAction="#paymentaction" prefHeight="65.0" prefWidth="216.0" stylesheets="@css/cordinatordash.css" text="Add Payment ">
          <font>
             <Font size="20.0" />
          </font></Button>
