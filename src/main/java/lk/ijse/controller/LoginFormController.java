@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class LoginFormController implements Initializable {
 
@@ -42,6 +43,8 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private PasswordField passward;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     UserBo userBo = (UserBo) BoFactory.getBoFactory().getBo(BoTypes.User);
 
@@ -80,7 +83,7 @@ public class LoginFormController implements Initializable {
             try {
                 boolean isCredintialsok = false;
                 for (UserDTO userDTO1 : userList) {
-                    if(userDTO1.getUsername().equals(username)&&userDTO1.getPassword().equals(password)) {
+                    if(userDTO1.getUsername().equals(username)&&passwordEncoder.matches(password,userDTO1.getPassword())) {
                         new Alert(Alert.AlertType.INFORMATION, "Welcome Admin " + username).show();
                         userDTO1.getUsername();
                         userDTO1.getPassword();
@@ -110,7 +113,7 @@ public class LoginFormController implements Initializable {
             try {
                 boolean isCredintialsok = false;
                 for (UserDTO userDTO1 : userList) {
-                    if(userDTO1.getUsername().equals(username)&&userDTO1.getPassword().equals(password)) {
+                    if(userDTO1.getUsername().equals(username)&&passwordEncoder.matches(password,userDTO1.getPassword())) {
                         new Alert(Alert.AlertType.INFORMATION, "Welcome Coordinator " + username).show();
                         userDTO1.getUsername();
                         userDTO1.getPassword();
