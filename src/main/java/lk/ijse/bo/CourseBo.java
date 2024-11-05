@@ -16,4 +16,6 @@ public interface CourseBo extends SuperBo{
     boolean updateCourse(CoursesDTO coursesDTO);
 
     List<CoursesDTO> loadTable();
+
+    int getCourseCount();
 }

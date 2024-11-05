@@ -53,5 +53,10 @@ public class CourseBoImpl implements CourseBo {
         return coursesDTOList;
     }
 
+    @Override
+    public int getCourseCount() {
+        return courseDao.getCourseCount();
+    }
+
 
 }

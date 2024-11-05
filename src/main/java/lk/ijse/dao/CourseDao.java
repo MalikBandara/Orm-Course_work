@@ -8,4 +8,5 @@ import java.util.List;
 public interface CourseDao extends CrudDao<Courses>{
 
     List<Courses> loadTable();
+    int getCourseCount();
 }

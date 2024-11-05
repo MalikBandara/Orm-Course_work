@@ -94,5 +94,11 @@ public class StudentDaoImpl implements StudentDao {
          return list;
 
     }
+    @Override
+    public int countAll() {
+        try (Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession()) {
+            return ((Long) session.createQuery("SELECT COUNT(*) FROM Student").uniqueResult()).intValue();
+        }
+    }
 
 }

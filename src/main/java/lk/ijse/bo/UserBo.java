@@ -21,4 +21,7 @@ public interface UserBo  extends SuperBo{
     boolean deleteUser(String username);
 
     List<UserDTO> loadTable();
+
+    int getUserCountByRole(String role);
+
 }

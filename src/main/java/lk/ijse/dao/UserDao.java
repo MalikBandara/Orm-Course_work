@@ -16,4 +16,7 @@ public interface UserDao extends CrudDao<User>{
 
     List<User> loadTale();
 
+    int getUserCountByRole(String role);
+
+
 }

@@ -72,5 +72,11 @@ public class UserBoImpl implements UserBo {
 
     }
 
+    @Override
+    public int getUserCountByRole(String role) {
+        return userDao.getUserCountByRole(role);
+    }
+
+
 
 }

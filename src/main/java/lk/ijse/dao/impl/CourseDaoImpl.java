@@ -6,6 +6,7 @@ import lk.ijse.entity.Courses;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -66,5 +67,19 @@ public class CourseDaoImpl implements CourseDao {
         tx.commit();
         session.close();
         return list;
+    }
+
+    @Override
+    public int getCourseCount() {
+        int count = 0;
+        try (Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession()) {
+            Transaction transaction = session.beginTransaction();
+            Query<Long> query = session.createQuery("SELECT COUNT(c) FROM Courses c", Long.class);
+            count = query.uniqueResult().intValue();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }

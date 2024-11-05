@@ -21,4 +21,7 @@ public interface StudentBo extends SuperBo {
     boolean deleteStudent(int studentIdText);
 
     List<StudentDTO> loadTable();
+
+    int getStudentCount();
+
 }

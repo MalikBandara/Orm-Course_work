@@ -133,6 +133,20 @@ public class UserDaoImpl implements UserDao {
         session.close();
         return userList;
     }
+    @Override
+    public int getUserCountByRole(String role) {
+        int count = 0;
+        try (Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession()) {
+            String hql = "SELECT count(*) FROM User WHERE role = :role";
+            Query<Long> query = session.createQuery(hql, Long.class);
+            query.setParameter("role", role);
+            count = query.uniqueResult().intValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 
 
 }

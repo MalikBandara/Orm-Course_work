@@ -62,7 +62,7 @@
                   <Font name="Noto Serif CJK JP Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="240.0" text="100" textFill="WHITE">
+            <Label fx:id="studentCount" layoutX="343.0" layoutY="240.0" text="100" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Font name="Noto Serif CJK JP Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="302.0" layoutY="226.0" text="100" textFill="WHITE">
+            <Label fx:id="CourseCount" layoutX="302.0" layoutY="226.0" text="100" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>
@@ -100,7 +100,7 @@
                   <Font name="Noto Serif CJK JP Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="375.0" layoutY="242.0" text="5" textFill="WHITE">
+            <Label fx:id="cordinatorCount" layoutX="375.0" layoutY="242.0" text="5" textFill="WHITE">
                <font>
                   <Font name="DejaVu Sans Bold" size="24.0" />
                </font>

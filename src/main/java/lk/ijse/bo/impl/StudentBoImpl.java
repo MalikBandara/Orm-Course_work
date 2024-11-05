@@ -62,4 +62,8 @@ public class StudentBoImpl implements StudentBo {
         return studentDTOS;
 
     }
+    @Override
+    public int getStudentCount() {
+        return studentDao.countAll(); // Assume `studentDao` has a `countAll` method
+    }
 }

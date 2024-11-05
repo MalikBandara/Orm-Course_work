@@ -9,4 +9,6 @@ public interface StudentDao extends CrudDao<Student>{
     List<User> getid();
 
     List<Student> loadTable();
+
+    int countAll();
 }
