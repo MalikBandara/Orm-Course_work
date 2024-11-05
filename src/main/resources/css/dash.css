@@ -99,14 +99,25 @@
 
 }
 
-#logout{
-    -fx-background-color: linear-gradient(to bottom, #0ab9ea, #0ab9ea); /* Gradient from dark blue to darker blue on hover */
-    -fx-text-fill: white; /* White text on hover */
-    -fx-border-color: white; /* White border on hover */
-    -fx-border-width: 2px; /* Border width on hover */
-    -fx-border-radius: 5px; /* Rounded border on hover */
-    -fx-background-radius: 5px; /* Rounded corners on hover */
+#logout {
+    -fx-background-color: linear-gradient(to bottom, #0ab9ea, #0097c8); /* Gradient from light blue to darker blue */
+    -fx-text-fill: white; /* White text color */
+    -fx-border-color: #0ab9ea; /* Border color to match background */
+    -fx-border-width: 2px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-background-radius: 5px; /* Rounded background corners */
+    -fx-font-size: 14px; /* Font size for readability */
+    -fx-padding: 10 20; /* Padding for better spacing */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Subtle shadow for depth */
 }
+
+#logout:hover {
+    -fx-background-color: linear-gradient(to bottom, #0097c8, #0ab9ea); /* Invert gradient on hover for effect */
+    -fx-border-color: white; /* White border on hover */
+    -fx-text-fill: #ffffff; /* Ensure text is still white on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5, 0, 0, 1); /* Stronger shadow on hover */
+}
+
 #title {
     -fx-background-color: transparent; /* Ensure the background is transparent */
     -fx-font-family: "Georgia", serif; /* Choose a beautiful, classic font */

@@ -19,31 +19,31 @@
                   <Image url="@images/dd-removebg-preview.png" />
                </image>
             </ImageView>
-            <Button fx:id="stbtn" layoutX="49.0" layoutY="267.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="Student">
+            <Button fx:id="stbtn" layoutX="49.0" layoutY="267.0" mnemonicParsing="false" onAction="#StudentOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="STUDENT">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font></Button>
-            <Button fx:id="coursebtn" layoutX="49.0" layoutY="379.0" mnemonicParsing="false" onAction="#coursesOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="Courses">
+            <Button fx:id="coursebtn" layoutX="49.0" layoutY="370.0" mnemonicParsing="false" onAction="#coursesOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="COURSES">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font></Button>
-            <Button fx:id="registrationbtn" layoutX="51.0" layoutY="485.0" mnemonicParsing="false" onAction="#registrationOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="Registrations">
+            <Button fx:id="registrationbtn" layoutX="51.0" layoutY="469.0" mnemonicParsing="false" onAction="#registrationOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="REGISTRATION">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font></Button>
-            <Button fx:id="userbtn" layoutX="50.0" layoutY="598.0" mnemonicParsing="false" onAction="#usersOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="Users">
+            <Button fx:id="userbtn" layoutX="50.0" layoutY="571.0" mnemonicParsing="false" onAction="#usersOnClick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="USER SETTINGS">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font></Button>
-            <Button fx:id="logout" layoutX="136.0" layoutY="878.0" mnemonicParsing="false" onAction="#logoutOnClick" prefHeight="49.0" prefWidth="112.0" />
-            <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="182.0" layoutY="893.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="logout" layoutX="148.0" layoutY="878.0" mnemonicParsing="false" onAction="#logoutOnClick" prefHeight="49.0" prefWidth="79.0" stylesheets="@css/register.css" />
+            <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="176.0" layoutY="893.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/icons8-logout-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="paymentbtn" layoutX="51.0" layoutY="712.0" mnemonicParsing="false" onAction="#btnpaymentclick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="Payment">
+            <Button fx:id="paymentbtn" layoutX="51.0" layoutY="668.0" mnemonicParsing="false" onAction="#btnpaymentclick" prefHeight="63.0" prefWidth="309.0" stylesheets="@css/dash.css" text="PAYMENT">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font></Button>
             <Label layoutX="144.0" layoutY="835.0" text="Log out">
                <font>

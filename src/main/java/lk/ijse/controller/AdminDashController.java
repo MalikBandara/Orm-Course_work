@@ -77,7 +77,7 @@ public class AdminDashController {
         Scene scene1 = new Scene(root);
         Stage stage1 = (Stage) registrationbtn.getScene().getWindow();
         stage1.setScene(scene1);
-        stage1.setTitle("Courses Form");
+        stage1.setTitle("Registration Form");
         stage1.centerOnScreen();
     }
 
@@ -87,7 +87,7 @@ public class AdminDashController {
         Scene scene1 = new Scene(root);
         Stage stage1 = (Stage) userbtn.getScene().getWindow();
         stage1.setScene(scene1);
-        stage1.setTitle("Courses Form");
+        stage1.setTitle("User Form");
         stage1.centerOnScreen();
 
     }
@@ -97,7 +97,7 @@ public class AdminDashController {
         Scene scene1 = new Scene(root);
         Stage stage1 = (Stage) logout.getScene().getWindow();
         stage1.setScene(scene1);
-        stage1.setTitle("Courses Form");
+        stage1.setTitle("Login  Form");
         stage1.centerOnScreen();
     }
 
@@ -106,7 +106,7 @@ public class AdminDashController {
         Scene scene1 = new Scene(root);
         Stage stage1 = (Stage) paymentbtn.getScene().getWindow();
         stage1.setScene(scene1);
-        stage1.setTitle("Courses Form");
+        stage1.setTitle("Payment Form");
         stage1.centerOnScreen();
     }
 }
