@@ -24,4 +24,6 @@ public interface StudentBo extends SuperBo {
 
     int getStudentCount();
 
+
+    List<Student> getAllStudentWhoAll();
 }

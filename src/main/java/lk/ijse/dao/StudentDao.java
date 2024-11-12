@@ -11,4 +11,7 @@ public interface StudentDao extends CrudDao<Student>{
     List<Student> loadTable();
 
     int countAll();
+
+
+    List<Student> getAllStudentWhoAll();
 }

@@ -66,4 +66,11 @@ public class StudentBoImpl implements StudentBo {
     public int getStudentCount() {
         return studentDao.countAll(); // Assume `studentDao` has a `countAll` method
     }
+
+    @Override
+    public List<Student> getAllStudentWhoAll() {
+      return studentDao.getAllStudentWhoAll();
+    }
+
+
 }

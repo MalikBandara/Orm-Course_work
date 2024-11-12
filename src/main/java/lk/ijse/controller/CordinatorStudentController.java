@@ -22,8 +22,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class
-CordinatorStudentController implements Initializable {
+public class CordinatorStudentController implements Initializable {
 
     @FXML
     private Label title;
@@ -81,14 +80,36 @@ CordinatorStudentController implements Initializable {
     void SaveOnAction(ActionEvent event) {
         try {
             int studentId = validateStudentId();
-            if (studentId == -1) return;
+            if (studentId == -1) {
+                showAlert("Input Error", "Invalid Student ID. Please enter a valid ID.", Alert.AlertType.WARNING);
+                return;
+            }
 
             String studentName = this.studentName.getText();
-            String address = this.address.getText();
-            String contact = this.contact.getText();
-            String email = this.Email.getText();
-            User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
+            if (studentName == null || studentName.trim().isEmpty()) {
+                showAlert("Input Error", "Please enter the student's name.", Alert.AlertType.WARNING);
+                return;
+            }
 
+            String address = this.address.getText();
+            if (address == null || address.trim().isEmpty()) {
+                showAlert("Input Error", "Please enter the student's address.", Alert.AlertType.WARNING);
+                return;
+            }
+
+            String contact = this.contact.getText();
+            if (!validateContact(contact)) {
+                showAlert("Input Error", "Please enter a valid contact number (e.g., 10 digits).", Alert.AlertType.WARNING);
+                return;
+            }
+
+            String email = this.Email.getText();
+            if (!validateEmail(email)) {
+                showAlert("Input Error", "Please enter a valid email address.", Alert.AlertType.WARNING);
+                return;
+            }
+
+            User selectedCoordinator = this.cmbCoId.getSelectionModel().getSelectedItem();
             if (selectedCoordinator == null) {
                 showAlert("Input Error", "Please select a coordinator.", Alert.AlertType.WARNING);
                 return;
@@ -107,9 +128,18 @@ CordinatorStudentController implements Initializable {
 
         } catch (Exception e) {
             showAlert("Error", "An unexpected error occurred: " + e.getMessage(), Alert.AlertType.ERROR);
-
         }
     }
+
+    // Helper methods for validation
+    private boolean validateContact(String contact) {
+        return contact != null && contact.matches("\\d{10}");
+    }
+
+    private boolean validateEmail(String email) {
+        return email != null && email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    }
+
 
     private int validateStudentId() {
         String studentIdText = this.studentId.getText();

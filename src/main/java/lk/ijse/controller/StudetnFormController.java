@@ -66,6 +66,10 @@ public class StudetnFormController implements Initializable {
     @FXML
     private AnchorPane anchorpane;
 
+
+    @FXML
+    private Button viewAllstd;
+
     @FXML
     private TableColumn<StudentTm, String> corid;
 
@@ -373,5 +377,14 @@ public class StudetnFormController implements Initializable {
         colemail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
         corid.setCellValueFactory(new PropertyValueFactory<>("userid"));
 
+    }
+
+    public void studentViewOnAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/ViewAllStudentsWhoRegisterdAllC.fxml"));
+        Scene scene1 = new Scene(root);
+        Stage stage1 = (Stage) viewAllstd.getScene().getWindow();
+        stage1.setScene(scene1);
+        stage1.setTitle("Courses Form");
+        stage1.centerOnScreen();
     }
 }

@@ -101,4 +101,22 @@ public class StudentDaoImpl implements StudentDao {
         }
     }
 
+    @Override
+    public List<Student> getAllStudentWhoAll() {
+        Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
+        Transaction  tx = session.beginTransaction();
+        String hql = "SELECT s FROM Student s " +
+                "JOIN Registration r ON s.StudentId = r.student.StudentId " +
+                "JOIN Courses c ON r.courses.courseId = c.courseId " +
+                "GROUP BY s.StudentId " +
+                "HAVING COUNT(DISTINCT c.courseId) = (SELECT COUNT(DISTINCT courseId) FROM Courses)";
+
+        Query<Student> query = session.createQuery(hql, Student.class);
+        List<Student> list = query.list();
+        tx.commit();
+        session.close();
+        return list;
+    }
+
+
 }
