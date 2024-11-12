@@ -105,6 +105,8 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> getAllStudentWhoAll() {
         Session session = SessionFactoryConfuguration.getSessionFactoryConfuguration().getSession();
         Transaction  tx = session.beginTransaction();
+
+        //get all students who register for all the courses
         String hql = "SELECT s FROM Student s " +
                 "JOIN Registration r ON s.StudentId = r.student.StudentId " +
                 "JOIN Courses c ON r.courses.courseId = c.courseId " +
