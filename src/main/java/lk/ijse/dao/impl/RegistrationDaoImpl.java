@@ -58,31 +58,31 @@ public boolean save(Registration registration) {
     Transaction tx = session.beginTransaction();
 
     try {
-        // Step 1: Save the Registration entity
+
         session.save(registration);
 
-        // Step 2: Retrieve the associated Payment entity from Registration
+
         Payment payment = registration.getPayment();
 
-        // Step 3: Update the balance and paid amount in Payment
+
         if (payment != null) {
-            // Update the balance in Payment with the advanced amount from Registration
-            payment.setBalance(payment.getBalance() + registration.getAdvanced()); // Add advanced amount to balance
 
-            // Calculate and update the paid amount
-            double newPaidAmount = payment.getAmount() - registration.getAdvanced(); // Calculate new paid amount
-            payment.setPaidAmount(newPaidAmount); // Set the updated paid amount
+            payment.setBalance(payment.getBalance() + registration.getAdvanced());
 
-            // Update the Payment entity in the database
-            session.update(payment); // Save the updated Payment entity
+
+            double newPaidAmount = payment.getAmount() - registration.getAdvanced();
+            payment.setPaidAmount(newPaidAmount);
+
+
+            session.update(payment);
         }
 
-        // Commit the transaction
+
         tx.commit();
         return true;
 
     } catch (Exception e) {
-        // Rollback the transaction in case of an error
+
         if (tx != null) {
             tx.rollback();
         }
@@ -90,7 +90,7 @@ public boolean save(Registration registration) {
         return false;
 
     } finally {
-        // Close the session to release resources
+
         session.close();
     }
 }
